@@ -1,0 +1,22 @@
+Introduction:
+
+Artificial Intelligence
+    Machine Learning
+        Deep Learning
+            Generative Artificial
+                ChatGPT 
+
+
+Machine Learning - Identifies pattern in the data and predict
+GenAI - Analyses the data and generate something out based on it
+
+GenAI --> Images, music, text (DALL E, midjourney, runway)
+Large Language Models(LLMs) --> Text only (ChatGPT, Bloom, PaLM 2)
+
+NTT Data GenAI tools:
+tsuzumi - lightweight LLM
+Dolffia - Multicloud GenAI solution to optimize document processing, enhacing content creation
+Coding - 
+eva - 
+LITRON -
+

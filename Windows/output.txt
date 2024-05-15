@@ -1,0 +1,39 @@
+[
+    {
+        "test_case_name": "Login Page_DisplayedCorrectly_Validation_EmptyFields_001",
+        "pre_condition": "Login page is loaded",
+        "steps_to_execute": "1. Leave both login name and password fields blank \
+                            2. Click on the login command button",
+        "expected_result": "Error message should be displayed indicating that both fields are required"
+    },
+    {
+        "test_case_name": "Login Page_DisplayedCorrectly_Validation_IncorrectCredentials_002",
+        "pre_condition": "Login page is loaded",
+        "steps_to_execute": "1. Enter a valid login name and incorrect password \
+                            2. Click on the login command button",
+        "expected_result": "Error message should be displayed indicating incorrect credentials"
+    },
+    {
+        "test_case_name": "Login Page_DisplayedCorrectly_Validation_AfterIncorrectLogin_003",
+        "pre_condition": "Login page is loaded",
+        "steps_to_execute": "1. Enter a valid login name and incorrect password \
+                            2. Click on the login command button \
+                            3. Attempt to login again",
+        "expected_result": "Password field should be blank after an incorrect login"
+    },
+    {
+        "test_case_name": "Registration Page_DisplayedCorrectly_Validation_EmptyFields_004",
+        "pre_condition": "Login page is loaded and register command button is clicked",
+        "steps_to_execute": "1. Leave all text fields blank \
+                            2. Click on the register command button",
+        "expected_result": "Error message should be displayed indicating that all fields are required"
+    },
+    {
+        "test_case_name": "Registration Page_DisplayedCorrectly_Validation_ExistingUser_005",
+        "pre_condition": "Login page is loaded and register command button is clicked",
+        "steps_to_execute": "1. Enter a login name that already exists \
+                            2. Enter two different passwords \
+                            3. Click on the register command button",
+        "expected_result": "Error message should be displayed indicating that the user already exists and passwords are different"
+    }
+]

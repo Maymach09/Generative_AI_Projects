@@ -1,0 +1,12 @@
+{"data": [
+{"User Requirement Id": "01", "User Requirement Name": "Stakeholder_Needs_Analysis_Understanding_Insurers_Expectations", "Test Case Name": "TC001_Stakeholder_Needs_Analysis_Understanding_Insurers_Expectations_Positive_1"},
+{"User Requirement Id": "02", "User Requirement Name": "Stakeholder_Needs_Analysis_Understanding_Insurers_Expectations", "Test Case Name": "TC002_Stakeholder_Needs_Analysis_Understanding_Insurers_Expectations_Negative_1"},
+{"User Requirement Id": "03", "User Requirement Name": "Regulatory_Compliance_Implementing_HIPAA_and_GDPR_Standards", "Test Case Name": "TC003_Regulatory_Compliance_Implementing_HIPAA_and_GDPR_Standards_Positive_1"},
+{"User Requirement Id": "04", "User Requirement Name": "Regulatory_Compliance_Implementing_HIPAA_and_GDPR_Standards", "Test Case Name": "TC004_Regulatory_Compliance_Implementing_HIPAA_and_GDPR_Standards_Negative_1"},
+{"User Requirement Id": "05", "User Requirement Name": "Workflow_Management_Defining_Clear_Claims_Processing_Workflows", "Test Case Name": "TC005_Workflow_Management_Defining_Clear_Claims_Processing_Workflows_Positive_1"},
+{"User Requirement Id": "06", "User Requirement Name": "Workflow_Management_Defining_Clear_Claims_Processing_Workflows", "Test Case Name": "TC006_Workflow_Management_Defining_Clear_Claims_Processing_Workflows_Negative_1"},
+{"User Requirement Id": "07", "User Requirement Name": "Integration_and_Interoperability_Seamless_External_System_Integration", "Test Case Name": "TC007_Integration_and_Interoperability_Seamless_External_System_Integration_Positive_1"},
+{"User Requirement Id": "08", "User Requirement Name": "Integration_and_Interoperability_Seamless_External_System_Integration", "Test Case Name": "TC008_Integration_and_Interoperability_Seamless_External_System_Integration_Negative_1"},
+{"User Requirement Id": "09", "User Requirement Name": "Fraud_Detection_and_Prevention_Implementing_Robust_Algorithms", "Test Case Name": "TC009_Fraud_Detection_and_Prevention_Implementing_Robust_Algorithms_Positive_1"},
+{"User Requirement Id": "10", "User Requirement Name": "Fraud_Detection_and_Prevention_Implementing_Robust_Algorithms", "Test Case Name": "TC010_Fraud_Detection_and_Prevention_Implementing_Robust_Algorithms_Negative_1"}
+]}

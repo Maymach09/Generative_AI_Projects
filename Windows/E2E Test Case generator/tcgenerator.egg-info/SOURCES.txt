@@ -1,0 +1,12 @@
+README.md
+setup.py
+src/__init__.py
+src/tcgenerator/TC_TM_Generator.py
+src/tcgenerator/__init__.py
+src/tcgenerator/logger.py
+src/tcgenerator/utils.py
+tcgenerator.egg-info/PKG-INFO
+tcgenerator.egg-info/SOURCES.txt
+tcgenerator.egg-info/dependency_links.txt
+tcgenerator.egg-info/requires.txt
+tcgenerator.egg-info/top_level.txt

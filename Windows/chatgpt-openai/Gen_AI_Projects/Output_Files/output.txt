@@ -1,0 +1,6 @@
+User Requirement | Corresponding Test Case
+1. The login page should be the first page that users see in the modified application, providing two text fields for login name and password, along with a command button for password checking. | Login_Page_Displayed_001
+2. Error messages should be displayed if either of the text fields is left blank or if the user name is unknown or the password is incorrect. | Error_Message_Displayed_Blank_Fields_001, Error_Message_Displayed_Unknown_User_001, Error_Message_Displayed_Incorrect_Password_001
+3. Users who have not registered must first do so by clicking on the register command button, without receiving an error for empty fields. | Registration_Page_Displayed_001
+4. After an incorrect login attempt, the password field should be blank, and a friendlier implementation would display the entered login name. | Error_Message_Displayed_Incorrect_Password_001
+5. The registration page should be displayed when the user clicks on the register command button, providing three text fields for login name and passwords, with error messages for blank fields or existing user names. | Registration_Page_Displayed_001, Error_Message_Displayed_Existing_User_001

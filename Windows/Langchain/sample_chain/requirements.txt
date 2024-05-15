@@ -1,0 +1,7 @@
+#libraries to be installed
+openai
+langchain
+streamlit
+wikipedia
+google-search-results
+langchain-openai

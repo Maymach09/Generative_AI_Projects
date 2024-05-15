@@ -1,0 +1,13 @@
+test_case_name,pre_condition,steps_to_execute,expected_result
+TC001_Login_Page_Display_Positive,Application is launched,"1. Open the application
+2. Verify that the login page is displayed with two text fields for login name and password, and a command button for password checking",The login page is displayed correctly
+TC002_Login_Error_Handling_Negative,Login page is displayed,"1. Leave the login name field blank and enter a password
+2. Click on the password checking button",An error message is displayed for the blank login name field
+TC003_Login_Field_Preservation_Positive,Login page is displayed with a previous login name entered,"1. Enter an incorrect password
+2. Click on the password checking button
+3. Verify that the login name field still contains the previous login name",The login name field is preserved after an incorrect login attempt
+TC004_Registration_Page_Display_Positive,Login page is displayed,"1. Click on the register command button
+2. Verify that the registration page is displayed with three text fields for login name and two passwords, and a command button for registration",The registration page is displayed correctly
+TC005_Registration_Error_Handling_Negative,Registration page is displayed,"1. Leave the login name field blank
+2. Enter two different passwords
+3. Click on the registration button",An error message is displayed for the blank login name field and different passwords

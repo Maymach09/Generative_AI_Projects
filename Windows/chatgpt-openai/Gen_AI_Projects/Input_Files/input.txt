@@ -1,0 +1,22 @@
+The login page should be the first page that users see in the modified application. It should provide two text fields
+- one for entering a login name and one for entering a password. In addition it should have a command button that
+initiates the password checking action. If either of the text fields is left blank it is an error that must be reported to the user. If both fields are filled in but there is no record of the user name or the password is
+incorrect that must also be reported to the user. Users that have not yet registered cannot log in. They must first
+register by clicking on the register command button. They should be able to do this without getting an error for an
+empty name or password field.
+When the login command button is clicked without filling in the name field or without filling in the password 
+field the user should see error messages. When the login command button is clicked after 
+filling in the name field password fields but the name is unknown or the password is incorrect the user should 
+see an error message. Even when the user has filled in both fields the password field 
+should be blank after an incorrect login (the getter for the password property always returns an empty string). 
+The implementation shown above handled the name property the same way, but a friendlier implementation would show the 
+login name as it was entered before clicking the login command button. Then the user would not have to enter it again 
+unless they saw that it was incorrect. The registration page should be displayed when a user clicks on the register 
+command button in the login page. It should provide three text fields - one for entering a login name and two for 
+entering passwords. In addition it should have a command button that initiates the registration action.
+If any of the text fields is left blank it is an error that must be reported to the user. If all fields are filled in 
+but there is already a record for the user name then that must be reported as an error. If the two passwords are 
+different that must also be reported as an error. When the register command button is clicked without filling in the 
+name field or without filling in both password fields the user should see error messages. 
+Both passwords field should be blank after this error but the login name may be visible. When the user attempts to 
+register with a login name that is already taken the user should see an error message.

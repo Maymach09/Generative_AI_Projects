@@ -1,0 +1,17 @@
+{
+    "data": [
+        {
+            "test_case_name": "TC001_High_Level_Functionality_LowLevelFunctionality_TestCaseType_Positive",
+            "pre_condition": "Condition to start the execution of the test case",
+            "steps_to_execute": "Step by Step instructions to execute the test case",
+            "expected_result": "Desired result expected when the test case is executed"
+        },
+        {
+            "test_case_name": "TC002_High_Level_Functionality_LowLevelFunctionality_TestCaseType_Negative",
+            "pre_condition": "Condition to start the execution of the test case",
+            "steps_to_execute": "Step by Step instructions to execute the test case",
+            "expected_result": "Desired result expected when the test case is executed"
+        }
+    ]
+}
+

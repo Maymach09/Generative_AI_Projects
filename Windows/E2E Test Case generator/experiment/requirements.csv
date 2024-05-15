@@ -1,0 +1,6 @@
+id,Requirement Name,Description,Priority
+1,Login_Page_Display,"The login page should be the first page that users see in the modified application with two text fields for login name and password, and a command button for password checking.",High
+2,Login_Error_Handling,Error messages should be displayed when either of the text fields is left blank or if the user name is unknown or the password is incorrect.,High
+3,Login_Field_Preservation,The login name entered by the user should be preserved even after an incorrect login attempt.,Medium
+4,Registration_Page_Display,"The registration page should be displayed when the user clicks on the register command button in the login page, with three text fields for login name and two passwords, and a command button for registration.",High
+5,Registration_Error_Handling,"Error messages should be displayed when any of the text fields is left blank, the user name is already taken, or the two passwords are different.",High

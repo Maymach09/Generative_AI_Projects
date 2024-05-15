@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "User Requirement Id": "Requirement id from summarized_requirements e.g. 01",
+            "User Requirement Name": "Name of the requirement from summarized_requirements",
+            "Test Case Name": "Test case name from test_cases"
+        },
+        {
+            "User Requirement Id": "Requirement id from summarized_requirements e.g. 02",
+            "User Requirement Name": "Name of the requirement from summarized_requirements",
+            "Test Case Name": "Test case name from test_cases"
+        }
+    ]
+}

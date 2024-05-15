@@ -1,0 +1,14 @@
+langchain
+langchain-chroma
+langchain-openai
+langchain-community
+langchain-core
+openai
+BeautifulSoup4
+python-docx
+PyPDF2
+requests
+tiktoken
+unstructured
+unstructured[all-docs]
+ollama
