@@ -14,7 +14,7 @@ load_dotenv()
 openai_api_key = os.environ.get('OPENAI_API_KEY')
 
 CHROMA_PATH = "chroma"
-tc_format_path = "/Users/maymach09/Documents/GenAI/macbook/GenAI/RAG_TestCases/tc_json_format"
+tc_format_path = "tc_json_format"
 
 # Load the JSON format from the separate file
 with open(tc_format_path, "r") as json_file:

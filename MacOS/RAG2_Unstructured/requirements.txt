@@ -9,3 +9,4 @@ langchain_openai
 langchain-community
 streamlit
 utils
+torch

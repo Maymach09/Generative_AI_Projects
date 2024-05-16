@@ -2,5 +2,7 @@ unstructured # Document loading
 chromadb # Vector storage
 openai # For embeddings and LLM
 tiktoken  # For embeddings
-langchain
 streamlit
+langchain_openai
+langchain_core
+langchain_community
