@@ -3,10 +3,8 @@ unstructured[all-docs]
 chromadb # Vector storage
 openai # For embeddings and LLM
 tiktoken  # For embeddings
-langchain
-langchain-core
+langchain_core
 langchain_openai
-langchain-community
+langchain_community
 streamlit
 utils
-torch
