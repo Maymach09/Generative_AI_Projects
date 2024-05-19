@@ -1,0 +1,82 @@
+---------------------------------------------------------------------
+
+User Prompt for Generating Test Cases:
+
+---------------------------------------------------------------------
+
+
+Context:
+You are an intelligent assistant tasked with generating comprehensive test cases for software based on specific requirements detailed in a provided document. The user will specify a topic or a particular aspect of the software for which they need test cases. Use the information from the document and the topic provided by the user to generate relevant and thorough test cases.
+Document Content:
+{context}
+User Input:
+{scenario}
+
+Instructions for Test Case Generation:
+	1	Identify Key Requirements:
+	2	Extract key functional and non-functional requirements from the provided document relevant to the specified topic.
+	3	Understand the User's Topic:
+	4	Focus on the specific aspect or feature mentioned by the user. Ensure your test cases cover all possible scenarios related to this aspect.
+	5	Generate Test Cases:
+	6	Create detailed test cases including:
+	    •	Test Case ID: Unique identifier for each test case.
+        •	Title: A concise title summarizing the test case.
+        •	Description: Detailed description of what the test case is verifying.
+        •	Preconditions: Any setup or prerequisites needed before executing the test.
+        •	Test Steps: Step-by-step instructions to execute the test.
+        •	Expected Results: The expected outcome of each step or the entire test case.
+        •	Postconditions: Any cleanup or state reset needed after test execution.
+	7	Consider Edge Cases:
+	8	Include edge cases and boundary conditions to ensure comprehensive coverage.
+	9	Format Output:
+	10	Format the output clearly, making it easy for testers to understand and execute.
+
+Example User Input and Test Case:
+
+User Input: Generate test cases for the user authentication feature.
+
+Generated Test Cases:
+
+Test Case ID: TC-001 
+Title: User Login with Valid Credentials
+Description: Verify that a user can log in with valid username and password.
+Preconditions: User must be registered in the system.
+Test Steps:
+	1	Navigate to the login page.
+	2	Enter a valid username and password.
+	3	Click on the login button.
+Expected Results:
+	•	User is successfully logged in and redirected to the dashboard.
+Postconditions: User session is active.
+
+Test Case ID: TC-002
+Title: User Login with Invalid Password
+Description: Verify that the user cannot log in with a valid username and invalid password.
+Preconditions: User must be registered in the system.
+Test Steps:
+	1	Navigate to the login page.
+	2	Enter a valid username and an invalid password.
+	3	Click on the login button.
+Expected Results:
+	•	User receives an error message indicating incorrect password.
+	•	User remains on the login page.
+Postconditions: No user session is created.
+
+Test Case ID: TC-003
+Title: User Login with Empty Credentials
+Description: Verify that the user cannot log in without entering username and password.
+Preconditions: None.
+Test Steps:
+	1	Navigate to the login page.
+	2	Leave the username and password fields empty.
+	3	Click on the login button.
+Expected Results:
+	•	User receives an error message indicating that username and password are required.
+	•	User remains on the login page.
+Postconditions: No user session is created.
+
+----------------------------------------------------------------------------------------------------------
+
+Generate your test cases following this structure and ensure they are detailed, clear, and thorough.
+
+----------------------------------------------------------------------------------------------------------

@@ -1,17 +1,28 @@
 {
     "data": [
         {
-            "test_case_name": "TC001_High_Level_Functionality_LowLevelFunctionality_TestCaseType_Positive",
-            "pre_condition": "Condition to start the execution of the test case",
-            "steps_to_execute": "Step by Step instructions to execute the test case",
-            "expected_result": "Desired result expected when the test case is executed"
+            "test_case_name": "TC_001_Login_Validity_Positive",
+            "Title": "User Login with Valid Credentials",
+            "Description": "Verify that a user can log in with valid username and password.",
+            "pre_conditions": "User must be registered in the system.",
+            "Test_Steps:": "1. Navigate to the login page. 2. Enter a valid username and password. 3. Click on the login button.",
+            "expected_result": "User is successfully logged in and redirected to the dashboard."
         },
         {
-            "test_case_name": "TC002_High_Level_Functionality_LowLevelFunctionality_TestCaseType_Negative",
-            "pre_condition": "Condition to start the execution of the test case",
-            "steps_to_execute": "Step by Step instructions to execute the test case",
-            "expected_result": "Desired result expected when the test case is executed"
+            "test_case_name": "TC_002_Login_Invalid_Negative",
+            "Title": "User Login with Invalid Password",
+            "Description": "Verify that the user cannot log in with a valid username and invalid password.",
+            "pre_conditions": "User must be registered in the system.",
+            "Test_Steps:": "1. Navigate to the login page. 2. Enter a valid username and an invalid password. 3. Click on the login button.",
+            "expected_result": "1. User receives an error message indicating incorrect password. 2. User remains on the login page."
+        },
+        {
+            "test_case_name": "TC_003_Login_Blank_Negative",
+            "Title": "User Login with Empty Credentials",
+            "Description": "Verify that the user cannot log in without entering username and password.",
+            "pre_conditions": "User must be registered in the system.",
+            "Test_Steps:": "1. Navigate to the login page. 2. Leave the username and password fields empty. 3. Click on the login button.",
+            "expected_result": "1. User receives an error message indicating that username and password are required. 2. User remains on the login page."
         }
     ]
 }
-
