@@ -5,10 +5,10 @@ import fitz  # PyMuPDF
 import pdfplumber
 import re
 import pytesseract
-from PIL import Image
-from PIL import ImageEnhance
+from PIL import Image, ImageEnhance
 import io
-
+import json
+import base64
 
 # Initialize spaCy's English model
 nlp = spacy.load("en_core_web_sm")
@@ -65,7 +65,6 @@ def remove_noise(text_segments):
     
     filtered_segments = []
     for segment in text_segments:
-        # Remove noise patterns
         segment = re.sub(noise_regex, '', segment)
         filtered_segments.append(segment.strip())
         
@@ -78,13 +77,11 @@ def tokenize_and_lemmatize(text_segments):
         tokens = []
         for token in doc:
             if token.text.lower() not in STOP_WORDS and token.is_alpha:
-                # Retain only non-entities or entities that are not of specific types
                 if token.ent_type_ == '' or token.ent_type_ not in ['DATE', 'PERSON', 'ORG', 'GPE']:
                     tokens.append(token.lemma_)
         processed_segments.append(" ".join(tokens))
     return processed_segments
 
-#Image Extraction:
 def extract_images_from_pdf(pdf_path):
     images = []
     with pdfplumber.open(pdf_path) as pdf:
@@ -94,36 +91,34 @@ def extract_images_from_pdf(pdf_path):
                 images.extend(page_images)
     return images
 
-# Optical Character Recognition (OCR):
 def ocr_images(images):
     extracted_text = []
     for image in images:
-        img_data = image['stream'].get('Data')
-        if img_data:
-            try:
-                img = Image.open(io.BytesIO(img_data))
-                text = pytesseract.image_to_string(img)
-                extracted_text.append(text)
-            except Exception as e:
-                print(f"Error processing OCR for image: {e}")
+        if 'stream' in image:
+            img_data = image['stream'].get('Data')
+            if img_data:
+                try:
+                    img = Image.open(io.BytesIO(img_data))
+                    text = pytesseract.image_to_string(img)
+                    extracted_text.append(text)
+                except Exception as e:
+                    print(f"Error during OCR: {e}")
+            else:
+                print("Empty or missing image data.")
         else:
             print("Empty or missing image data.")
     return extracted_text
 
-# Image Enhancement:
-def enhance_image(img_data):
+def enhance_image(image_data):
     try:
-        img = Image.open(io.BytesIO(img_data))
-        # Example of enhancing image contrast
+        img = Image.open(io.BytesIO(image_data))
         enhancer = ImageEnhance.Contrast(img)
         enhanced_img = enhancer.enhance(1.5)  # Increase contrast
         return enhanced_img
     except Exception as e:
         print(f"Error enhancing image: {e}")
-        return None  # Return None if enhancement fails
+        return None
 
-
-# Metadata Extraction:
 def extract_image_metadata(pdf_path):
     image_metadata = []
     with pdfplumber.open(pdf_path) as pdf:
@@ -131,17 +126,26 @@ def extract_image_metadata(pdf_path):
             for img in page.images:
                 metadata = {
                     'page_number': page_num + 1,
-                    'width': img['width'],
-                    'height': img['height'],
-                    'dpi': img.get('dpi', None),  # Use get() to handle missing 'dpi'
-                    'colorspace': img.get('colorspace', None),
-                    # Add more metadata fields as needed
+                    'width': img.get('width'),
+                    'height': img.get('height'),
+                    'dpi': img.get('dpi', 'N/A'),  # Use 'N/A' if dpi is not present
+                    'colorspace': img.get('colorspace', 'N/A')  # Use 'N/A' if colorspace is not present
                 }
                 image_metadata.append(metadata)
     return image_metadata
 
-# Main function:
-def extract_clean_and_process_pdf(pdf_path):
+def contextual_filtering(text_segments):
+    keywords = ["requirement", "test case", "functionality", "feature", "acceptance criteria"]
+    filtered_segments = []
+    for segment in text_segments:
+        doc = nlp(segment)
+        for keyword in keywords:
+            if any(keyword in token.text.lower() for token in doc):
+                filtered_segments.append(segment)
+                break
+    return filtered_segments
+
+def extract_clean_process_and_filter_pdf(pdf_path):
     print("Extracting text and tables from PDF...")
     text_segments, tables = extract_text_and_tables_from_pdf(pdf_path)
     print(f"Extracted {len(text_segments)} text segments and {len(tables)} tables.")
@@ -158,6 +162,10 @@ def extract_clean_and_process_pdf(pdf_path):
     processed_segments = tokenize_and_lemmatize(noise_free_segments)
     print(f"Processed {len(processed_segments)} text segments.")
     
+    print("Contextual filtering...")
+    filtered_segments = contextual_filtering(processed_segments)
+    print(f"Filtered down to {len(filtered_segments)} contextually relevant text segments.")
+    
     print("Extracting images from PDF...")
     images = extract_images_from_pdf(pdf_path)
     print(f"Extracted {len(images)} images.")
@@ -167,20 +175,51 @@ def extract_clean_and_process_pdf(pdf_path):
     print(f"Extracted OCR texts from {len(ocr_texts)} images.")
     
     print("Enhancing images...")
-    enhanced_images = [enhance_image(image['stream'].get('Data')) for image in images if 'stream' in image]
+    enhanced_images = [enhance_image(image['stream'].get('Data')) for image in images if 'stream' in image and image['stream'].get('Data')]
+    enhanced_images = [img for img in enhanced_images if img is not None]
     print(f"Enhanced {len(enhanced_images)} images.")
     
     print("Extracting image metadata...")
     image_metadata = extract_image_metadata(pdf_path)
     print(f"Extracted metadata for {len(image_metadata)} images.")
     
-    return processed_segments, tables, ocr_texts, enhanced_images, image_metadata
+    return filtered_segments, tables, ocr_texts, enhanced_images, image_metadata
 
+def save_extracted_data_to_json(data, output_path):
+    # Convert PIL images to base64 strings
+    def img_to_base64(img):
+        buffered = io.BytesIO()
+        img.save(buffered, format="PNG")
+        return base64.b64encode(buffered.getvalue()).decode('utf-8')
+    
+    # Convert PSLiteral objects to strings for JSON serialization
+    def convert_image_metadata(image_metadata):
+        converted_metadata = []
+        for meta in image_metadata:
+            converted_meta = {
+                'page_number': meta['page_number'],
+                'width': meta['width'],
+                'height': meta['height'],
+                'dpi': meta['dpi'],
+                'colorspace': meta['colorspace']
+            }
+            converted_metadata.append(converted_meta)
+        return converted_metadata
+    
+    data_dict = {
+        "filtered_segments": data[0],
+        "tables": data[1],
+        "ocr_texts": data[2],
+        "enhanced_images": [img_to_base64(img) if img else None for img in data[3]],
+        "image_metadata": convert_image_metadata(data[4])
+    }
+    
+    with open(output_path, 'w') as json_file:
+        json.dump(data_dict, json_file, indent=4, default=str)  # Use default=str to handle non-serializable types
 
-pdf_path = 'data/SoftwareRequirementsSpecification.pdf'
-processed_text_segments, tables, ocr_texts, enhanced_images, image_metadata = extract_clean_and_process_pdf(pdf_path)
-
-for i, segment in enumerate(processed_text_segments):
-    print(f"Processed Segment {i + 1}:")
-    print(segment)
-    print("\n---\n")
+# Example usage:
+if __name__ == "__main__":
+    pdf_path = 'data/SBC.pdf'
+    extracted_data = extract_clean_process_and_filter_pdf(pdf_path)
+    json_output_path = 'extracted_data.json'
+    save_extracted_data_to_json(extracted_data, json_output_path)

@@ -1,0 +1,37 @@
+SAMPLE BUSINESS REQUIREMENT DOCUMENT
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e Contents VERSION history introduction business rule business requirement detailed USE detailed USE case ACTIVITY DIAGRAMS DIAGRAM process flow DIAGRAM
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e VERSION history Version Number Date Description author review approve Business Requirement case activity diagram requirement insert Gap Analysis diagram BR Requirement introduction document provide user formal write high level description propose system document give diagram propose system enhancement project BUSINESS rule enforce HIPAA Privacy Rule protect privacy individually identifiable health information set national standard security electronic protect health information uphold rule email messaging text alert voice message alert program consent collection use personal information set forth privacy policy agree policy term choose opt service private confidential patient information send email text voice message prior authorization patient customer give handwritten electronic signature code set report medical diagnosis inpatient procedure replace code set note change affect code outpatient procedure physician service quote provide online subject change discretion BUSINESS requirement allow user shop health insurance receive free quote allow ability current member access account allow user find doctor hospital cover user quick information slide upcoming event project public health effort provide member exclusive medium national policy news press release provide ability user learn health insurance term condition provide ability user search urgent care location allow user register career profile
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e detail USE Allow User shop health insurance receive free quote want shop website health insurance receive quote Glossary Priority High Trigger Enter button Pre condition User know zip code interest post condition User receive plan quote Happy Path User Flow System Response user click text box locate label ƌuote fƌoŵ lođal Blue user enter zip code interest user click enter button locate directly right text box user take page show sign foƌ FaŵilǇ oŷlǉ optioŷ visitor site select select Useƌ ŵust seleđt
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e faŵilǉ option visitor site select select user enter zip code interest user click button user take page enter addition information gender date birth User select gender drop menu user enter date birth User want cover plan enter Spouses information User want cover plan enter Spouses gender User want cover plan enter date birth User child need want cover health insurance plan enter child corresponding gender date birth user determine want coverage start future dropdown menu coverage start date
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e user make sure zip code correct select County interest user click button ǁhiđh saǉ user direct page show list coverage plan corresponding price user select desire đliđkiŷg button user direct page require enter additional information Alternate Path User Flow System Response user enter zip code user click enter button zip code wrong redirect User Error page laďel Ŷaŵed aŷd label label name seaƌĐh Ŷot ƌetuƌŶ aŷǉ hǉpeƌliŷk ǁhiđh saǉ ďađk aŶd ƌetƌǇ Ǉouƌ user click hyperlink say ďaĐk aŶd take User page title label say foƌ user click text box label text ďoǆ ǁhiđh saǉ ip user click enter button user take page show sign foƌ FaŵilǇ oŷlǉ optioŷ visitor site select select user enter date birth Useƌ ǁill aŷ ŶotiĐe pƌoŵpt
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e useƌ eŷteƌ ǀalid date ďiƌth Useƌ theŷ đliđks button Response system error website access database user get direct error page apology health care plan upload website User search user get direct error page apology
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e detail USE case allow ability current member access account User Member ability current member access account Glossary Priority High Frequency High Trigger Useƌ đliđks ďuttoŶ Pre condition User Member post condition User able view page account information Happy Path User Flow System Response user click button call user direct page enter letter number member ID card user enter letter number member ID card user click enter button user connect lođal ĐoŵpaŶǇ ǁeďsite gain access member benefit case type random letter come follow website
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e user click login button dropdown menu present ability user enter username password user click text box laďel ǁhiđh saǉ user enter username User click text box label say user enter password user click Log button user direct member account page user enter incorrect letter number member ID card user direct Error page laďel Ŷaŵed label laďel Ŷaŵed Ŷot ƌetuƌŶ aŷǉ hyperlink say ďađk aŶd ƌetƌǇ Ǉouƌ user enter incorrect username password user direct Login help page get error message ǁhiĐh saǉ User Password message color red Useƌ eŶteƌ aŶǇ character username user get immediate error message dropdown menu attempt LogiŶ ǁhiđh saǉ eŶteƌ ŵessage iŶ color red Useƌ eŶteƌ aŷǉ user get immediate error message dropdown menu
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e character password attempt LogiŶ ǁhiđh saǉ eŶteƌ ŵessage iŶ color red User Flow System Response system error website access database user get direct error page apology health care plan upload website User search user get direct error page apology
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e use CASE
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e ACTIVITY DIAGRAMS Register Career Profile
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e GAP ANALYSIS External Database Access provider Access Google Maps base provide user Hospitals interest comparison User select Doctor Hospital choice User go website
+
+SAMPLE BUSINESS REQUIREMENT DOCUMENT p g e process flow DIAGRAM External Database doctor Hospital User External Database provider base provide user Access Google Maps base provide user User select Doctor Hospital choice User select doctor Hospitals interest comparison individual Doctor Hospital calendar convenient scheduling appointment User go website provide customer ability quickly easily schedule appointment Idea decrease schedule conflict provide hassle free scheduling
+
+Image Metadata:
+Page 1, Size: 540.0 x 310.35999999999996
+Page 11, Size: 540.0 x 552.75
+Page 12, Size: 540.0 x 461.1
+Page 12, Size: 452.25 x 40.5
+Page 13, Size: 398.25 x 597.0
+Page 13, Size: 452.25 x 40.5
