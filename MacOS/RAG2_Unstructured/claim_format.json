@@ -1,0 +1,99 @@
+{
+    "claim": {
+      "claim_id": "CLM1234567890",
+      "claim_type": "Professional",
+      "patient": {
+        "patient_id": "PAT1234567890",
+        "first_name": "John",
+        "last_name": "Doe",
+        "middle_initial": "A",
+        "date_of_birth": "1980-01-01",
+        "gender": "M",
+        "address": {
+          "line1": "123 Elm Street",
+          "line2": "Apt 4B",
+          "city": "Springfield",
+          "state": "IL",
+          "zip": "62701",
+          "country": "USA"
+        },
+        "phone_number": "(217) 555-1234"
+      },
+      "insured": {
+        "insured_id": "INS1234567890",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "middle_initial": "B",
+        "relationship_to_patient": "Spouse",
+        "address": {
+          "line1": "123 Elm Street",
+          "line2": "Apt 4B",
+          "city": "Springfield",
+          "state": "IL",
+          "zip": "62701",
+          "country": "USA"
+        },
+        "phone_number": "(217) 555-1234",
+        "insurance_plan": {
+          "plan_name": "Medicare",
+          "policy_number": "MED1234567890",
+          "group_number": "GRP123456",
+          "plan_type": "PPO"
+        }
+      },
+      "provider": {
+        "provider_id": "PROV1234567890",
+        "provider_name": "ABC Health Clinic",
+        "provider_address": {
+          "line1": "456 Oak Street",
+          "line2": "",
+          "city": "Springfield",
+          "state": "IL",
+          "zip": "62702",
+          "country": "USA"
+        },
+        "phone_number": "(217) 555-5678",
+        "npi": "1234567890",
+        "taxonomy_code": "207Q00000X"
+      },
+      "claim_details": {
+        "date_of_service": "2024-05-01",
+        "place_of_service": "Office",
+        "diagnosis_codes": ["J18.9", "R50.9"],
+        "procedure_codes": [
+          {
+            "code": "99213",
+            "description": "Office visit",
+            "quantity": 1,
+            "unit_price": 100.00,
+            "total_price": 100.00
+          },
+          {
+            "code": "81002",
+            "description": "Urinalysis",
+            "quantity": 1,
+            "unit_price": 20.00,
+            "total_price": 20.00
+          }
+        ],
+        "total_charge": 120.00,
+        "amount_paid": 0.00,
+        "balance_due": 120.00
+      },
+      "additional_info": {
+        "claim_notes": "Routine visit for fever and cough.",
+        "referring_provider": {
+          "first_name": "Mark",
+          "last_name": "Jenkins",
+          "npi": "1098765432"
+        },
+        "prior_authorization_number": "PA1234567890",
+        "accident_information": {
+          "related_to_employment": "No",
+          "auto_accident": "No",
+          "other_accident": "No"
+        }
+      }
+    }
+  }
+  
