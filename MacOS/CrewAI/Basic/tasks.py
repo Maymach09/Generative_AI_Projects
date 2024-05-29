@@ -1,4 +1,4 @@
-from agents import reviewer, test_designer
+from agents import reviewer, test_designer, test_lead
 from crewai import Task
 
 ## Analyze Requirements Task
@@ -44,4 +44,23 @@ design = Task(
    "Priority:Value"
    "Type:Value" ,
   agent=test_designer,
+)
+
+
+lead = Task(
+    description=(
+    "Analyze the {user_requirements}. "
+    "Review the response drafted by Software Requirements Reviewer based on {user_requirements}. "
+    "Review the response drafter by Software Test Designer based on {user_requirements}. "
+    "Verify that software testing designing techniques \n"
+    "and industry standard software testing principles have been followed in the responses. "
+    "Ensure that all the requirements are covered by the test scenarios and test cases. "
+    "Also ensure that both positive and negative test cases have been covered in the responses.  "
+    ),
+    expected_output="Well structured test cases in JSON format with the following key-value pairs:\n"
+   "TC_Name:Value"
+   "Test_Steps:Value"
+   "Priority:Value"
+   "Type:Value" ,
+  agent=test_lead,
 )

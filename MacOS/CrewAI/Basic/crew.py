@@ -1,6 +1,6 @@
 from crewai import Crew
-from agents import reviewer, test_designer
-from tasks import review,design
+from agents import reviewer, test_designer, test_lead
+from tasks import review,design,lead
 
 user_requirements = """
 A claims adjudication system must support secure user authentication with role-based access, and multi-factor authentication.\n
@@ -12,9 +12,9 @@ scalability to handle high claim volumes are also critical requirements.
 """
 
 crew = Crew(
-    agents=[reviewer, test_designer],
-    tasks=[review, design],
-    verbose=2
+    agents=[reviewer, test_designer, test_lead],
+    tasks=[review, design, lead],
+    verbose=1
 )
 
 result = crew.kickoff(inputs={"user_requirements": user_requirements})
