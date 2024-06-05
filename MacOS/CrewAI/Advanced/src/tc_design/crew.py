@@ -13,5 +13,5 @@ crew = Crew(
 input_file_path = '/Users/maymach09/Documents/GenAI09/MacOS/CrewAI/Advanced/src/tc_design/business_requirements.txt'
 
 # Starting the task execution process with enhanced feedback
-result = crew.kickoff(inputs={'business_requirements': input_file_path})
+result = crew.kickoff(inputs={'business_requirements':input_file_path})
 print(result)
