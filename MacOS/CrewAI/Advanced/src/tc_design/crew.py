@@ -11,6 +11,10 @@ crew = Crew(
 
 # Define the input dictionary with the file path
 input_file_path = '/Users/maymach09/Documents/GenAI09/MacOS/CrewAI/Advanced/src/tc_design/business_requirements.txt'
+requirements_summary_path = 'src/tc_design/summary.txt'
+test_scenario_path = 'src/tc_design/test_scenarios.txt'
+test_cases_path = 'src/tc_design/test_cases.txt'
+
 
 # Starting the task execution process with enhanced feedback
 result = crew.kickoff(inputs={'business_requirements':input_file_path})

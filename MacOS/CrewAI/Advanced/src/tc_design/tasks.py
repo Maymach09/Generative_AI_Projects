@@ -1,15 +1,15 @@
 from crewai import Task
-from tools import file_read_tool#, file_write_tool
+from tools import file_read_tool, file_write_tool
 from agents import requirements_analyst, scenario_designer, test_designer, test_manager
 
 # Requirements analyst task
 requirement_analysis_task = Task(
     description=(
-        "Analyze the {business_requirements}. Provide a summary of the key requirements."
+        "Analyze the {business_requirements} and provide a summary of the key requirements."
     ),
     expected_output= 'A summary of the key business requirements in bullet points.',
-    #Output_File='/Users/maymach09/Documents/GenAI09/MacOS/CrewAI/Advanced/src/tc_design/summary.txt',
-    tools=[file_read_tool],
+    Output_File=True,
+    tools=[file_read_tool,file_write_tool],
     agent=requirements_analyst,
 )
 
@@ -20,7 +20,8 @@ test_scenario_design_task = Task(
         " list of scenarios that cover all the key aspects."
     ),
     expected_output='List of test scenarios',
-    tools=[],
+    Output_File=True,
+    tools=[file_write_tool],
     agent=scenario_designer,
 )
 
@@ -64,7 +65,8 @@ test_review_task = Task(
                      'Test Steps: Detailed Steps to execute the test cases\n'
                      'Expected Result: Expected outcome of the test case\n'
 ),
-    tools=[],
+    Output_File=True,
+    tools=[file_write_tool],
     agent=test_manager,
 )
 
