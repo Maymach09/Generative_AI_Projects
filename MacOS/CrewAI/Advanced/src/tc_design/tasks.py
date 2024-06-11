@@ -8,9 +8,10 @@ requirement_analysis_task = Task(
         "Analyze the {business_requirements} and provide a summary of the key requirements."
     ),
     expected_output= 'A summary of the key business requirements in bullet points.',
-    Output_File=True,
+    Output_File='src/tc_design/summary.txt',
     tools=[file_read_tool,file_write_tool],
     agent=requirements_analyst,
+    action_params={"file_path": "src/tc_design/summary.txt"},
 )
 
 # Scenario design task
@@ -20,9 +21,10 @@ test_scenario_design_task = Task(
         " list of scenarios that cover all the key aspects."
     ),
     expected_output='List of test scenarios',
-    Output_File=True,
+    Output_File='src/tc_design/test_scenarios.txt',
     tools=[file_write_tool],
     agent=scenario_designer,
+    action_params={"file_path": "src/tc_design/test_scenarios.txt"},
 )
 
 # Test design task
@@ -38,10 +40,11 @@ test_design_task = Task(
         'Preconditions\n'
         'Test Steps\n'
         'Expected Outcome\n'
-    )
-    ,
-    tools=[],
+    ),
+    Output_File='src/tc_design/test_cases.txt',
+    tools=[file_write_tool],
     agent=test_designer,
+    action_params={"file_path": "src/tc_design/test_cases.txt"},
 )
 
 # Review task
@@ -65,8 +68,9 @@ test_review_task = Task(
                      'Test Steps: Detailed Steps to execute the test cases\n'
                      'Expected Result: Expected outcome of the test case\n'
 ),
-    Output_File=True,
+    Output_File='src/tc_design/final_test_cases.json',
     tools=[file_write_tool],
     agent=test_manager,
+    action_params={"file_path": "src/tc_design/final_test_cases.json"},
 )
 
