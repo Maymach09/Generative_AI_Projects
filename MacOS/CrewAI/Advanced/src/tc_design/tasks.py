@@ -4,34 +4,36 @@ from agents import requirements_analyst, scenario_designer, test_designer, test_
 
 # Requirements analyst task
 requirement_analysis_task = Task(
-    description=(
-        "Analyze the {business_requirements} and provide a summary of the key requirements."
+    description=("""
+                 Analyze the {business_requirements} and provide a summary of the key requirements.
+                 """
     ),
     expected_output= 'A summary of the key business requirements in bullet points.',
-    Output_File='src/tc_design/summary.txt',
-    tools=[file_read_tool,file_write_tool],
+    tools=[file_read_tool],
     agent=requirements_analyst,
-    action_params={"file_path": "src/tc_design/summary.txt"},
+    #output_file = '/output/summary.txt',
 )
 
 # Scenario design task
 test_scenario_design_task = Task(
-    description=(
-        "Create test scenarios based on the requirements summary from requirements_analyst agent. Provide a"
-        " list of scenarios that cover all the key aspects."
+    description=("""
+        Create test scenarios based on the requirements summary. Create the scenarios
+        that cover all the key aspects.
+    """
+
     ),
-    expected_output='List of test scenarios',
-    Output_File='src/tc_design/test_scenarios.txt',
-    tools=[file_write_tool],
+    expected_output='List of test scenarios.',
+    #tools=[file_write_tool],
     agent=scenario_designer,
-    action_params={"file_path": "src/tc_design/test_scenarios.txt"},
+    context=[requirement_analysis_task],
+    #output_file = '/output/test_scenarios.txt',
 )
 
 # Test design task
 test_design_task = Task(
     description=(
-        "Develop detailed test cases from the test scenarios. Ensure that all edge cases"
-        " are covered. Ensure that test cases also cover both positive and negative cases."
+        "Develop detailed test cases from the test scenarios. Ensure that all edge cases "
+        " are covered. Ensure that test cases also cover both positive and negative cases. "
     ),
     expected_output=(
         'List of test cases with the following fields:\n'
@@ -41,17 +43,17 @@ test_design_task = Task(
         'Test Steps\n'
         'Expected Outcome\n'
     ),
-    Output_File='src/tc_design/test_cases.txt',
-    tools=[file_write_tool],
+    #tools=[file_write_tool],
     agent=test_designer,
-    action_params={"file_path": "src/tc_design/test_cases.txt"},
+    context=[test_scenario_design_task],
+    #output_file = '/output/test_scenarios.txt',
 )
 
 # Review task
 test_review_task = Task(
     description=(
-        "Review the designed test scenarios and test cases. Make any necessary modifications"
-        " and provide the final output in JSON format. Make sure to validate the following:\n"
+        "Review the designed test scenarios and test cases. Make any necessary modifications "
+        "Make sure to validate the following:\n"
         "- Each test case is accurate and complete.\n"
         "- All the requirements are thoroughly covered by the test cases.\n"
         "- The test cases are robust and cover edge cases.\n"
@@ -68,9 +70,11 @@ test_review_task = Task(
                      'Test Steps: Detailed Steps to execute the test cases\n'
                      'Expected Result: Expected outcome of the test case\n'
 ),
-    Output_File='src/tc_design/final_test_cases.json',
     tools=[file_write_tool],
     agent=test_manager,
-    action_params={"file_path": "src/tc_design/final_test_cases.json"},
+    context=[test_scenario_design_task],
+    output_file = '/output/test_cases.json',
+    Output_JSON = True,
+#    action_params={"file_path": "src/tc_design/final_test_cases.json"},
 )
 
