@@ -9,7 +9,7 @@ requirement_analysis_task = Task(
                  """
     ),
     expected_output= 'A summary of the key business requirements in bullet points.',
-    tools=[file_read_tool],
+    tools=[file_read_tool],#file_write_tool],
     agent=requirements_analyst,
     #output_file = '/output/summary.txt',
 )
@@ -70,11 +70,10 @@ test_review_task = Task(
                      'Test Steps: Detailed Steps to execute the test cases\n'
                      'Expected Result: Expected outcome of the test case\n'
 ),
-    tools=[file_write_tool],
+    #tools=[file_write_tool],
     agent=test_manager,
     context=[test_scenario_design_task],
-    output_file = '/output/test_cases.json',
+    #output_file = '/output/test_cases.json',
     Output_JSON = True,
-#    action_params={"file_path": "src/tc_design/final_test_cases.json"},
 )
 

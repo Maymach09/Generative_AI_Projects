@@ -23,7 +23,7 @@ requirements_analyst = Agent(
         "You are responsible for understanding and analyzing the business requirements"
         " to ensure all aspects are covered for generating test scenarios and cases."
     ),
-    tools=[file_read_tool,file_write_tool],
+    #tools=[file_read_tool,file_write_tool],
     llm=llm,
     allow_delegation=False
 )
@@ -38,7 +38,7 @@ scenario_designer = Agent(
         "Your job is to develop comprehensive test scenarios that cover all aspects of the"
         " business requirements to ensure thorough testing."
     ),
-    tools=[file_write_tool],
+    #tools=[file_write_tool],
     llm=llm,
     allow_delegation=False
 )
@@ -53,7 +53,7 @@ test_designer = Agent(
         "You create detailed test cases based on the provided test scenarios, ensuring"
         " all edge cases are covered."
     ),
-    tools=[file_write_tool],
+    #tools=[file_write_tool],
     llm=llm,
     allow_delegation=False
 )
@@ -69,6 +69,6 @@ test_manager = Agent(
         " making necessary modifications before the final output."
     ),
     llm=llm,
-    tools=[file_write_tool],
+    #tools=[file_write_tool],
     allow_delegation=False
 )
