@@ -1,8 +1,1 @@
-crewai
-crewai_tools
-langchain_google_genai
-langchain-community
-requests
-duckduckgo-search
-chromadb
-langchain_google_genai
+Please provide the software requirements document.

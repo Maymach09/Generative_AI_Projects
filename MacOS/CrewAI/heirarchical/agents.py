@@ -1,14 +1,45 @@
 from crewai import Agent
 from tools import file_read_tool, file_write_tool, web_tool
-from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
-import os
+from tools import llm
 
-# Load environment variables
-load_dotenv()
+# Define Agents
+test_manager = Agent(
+    role='Test Manager',
+    goal='Oversee the test planning process, assign tasks, review outputs and generate final output.',
+    backstory="A seasoned test manager ensuring quality and thoroughness in the testing process.",
+    verbose=True,
+    memory=True,
+    llm=llm,
+    tools=[file_write_tool],
+    allow_delegation=True
+)
 
-# Call the gemini model
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash",
-                             verbose=True,
-                             temperature=0.5,
-                             google_api_key=os.getenv("GOOGLE_API_KEY"))
+test_planner = Agent(
+    role='Test Planner',
+    goal='Create a comprehensive test plan based on the software requirements',
+    backstory="An experienced test planner with a knack for identifying key testing areas.",
+    verbose=True,
+    memory=True,
+    llm=llm,
+    #tools=[file_write_tool]
+)
+
+test_scenario_designer = Agent(
+    role='Test Scenario Designer',
+    goal='Develop detailed test scenarios based on the test plan',
+    backstory="A creative thinker focused on covering all possible use cases.",
+    verbose=True,
+    memory=True,
+    llm=llm,
+    #tools=[file_write_tool]
+)
+
+test_case_developer = Agent(
+    role='Test Case Developer',
+    goal='Write specific test cases based on the test scenarios using the best test techniques found online',
+    backstory="A meticulous test case writer ensuring thorough coverage and clarity.",
+    verbose=True,
+    memory=True,
+    llm=llm,
+    tools=[web_tool]
+)
