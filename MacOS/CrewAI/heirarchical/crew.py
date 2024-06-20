@@ -12,7 +12,7 @@ crew = Crew(
 )
 
 # Kickoff Crew
-brd_content = file_read_tool._run('business_requirements.txt')
+brd_content = file_read_tool._run('/Users/maymach09/Documents/GenAI09/MacOS/CrewAI/heirarchical/business_requirements.txt')
 
 result = crew.kickoff(inputs={'software_requirements': brd_content})
 print(result)

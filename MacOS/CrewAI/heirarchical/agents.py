@@ -5,12 +5,12 @@ from tools import llm
 # Define Agents
 test_manager = Agent(
     role='Test Manager',
-    goal='Oversee the test planning process, assign tasks, review outputs and generate final output.',
+    goal='Oversee the test planning process, assign tasks, review outputs and provide review comments back to the agent.',
     backstory="A seasoned test manager ensuring quality and thoroughness in the testing process.",
     verbose=True,
     memory=True,
     llm=llm,
-    tools=[file_write_tool],
+    #tools=[file_read_tool,file_write_tool],
     allow_delegation=True
 )
 
@@ -21,7 +21,7 @@ test_planner = Agent(
     verbose=True,
     memory=True,
     llm=llm,
-    #tools=[file_write_tool]
+    #tools=[file_read_tool,file_write_tool]
 )
 
 test_scenario_designer = Agent(
@@ -31,7 +31,7 @@ test_scenario_designer = Agent(
     verbose=True,
     memory=True,
     llm=llm,
-    #tools=[file_write_tool]
+    #tools=[file_read_tool,file_write_tool]
 )
 
 test_case_developer = Agent(
@@ -41,5 +41,5 @@ test_case_developer = Agent(
     verbose=True,
     memory=True,
     llm=llm,
-    tools=[web_tool]
+   # tools=[file_read_tool,file_write_tool,web_tool]
 )

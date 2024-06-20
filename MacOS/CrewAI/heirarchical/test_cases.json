@@ -1,0 +1,408 @@
+```json
+[
+  {
+    "Test_Case_Id": "TC_001",
+    "Test_Case_Description": "Verify Weak Password Error Message",
+    "Test_Steps": [
+      "1. Navigate to the registration page.",
+      "2. Enter a valid username.",
+      "3. Enter a weak password (e.g., \"password\").",
+      "4. Click on the \"Create Account\" button.",
+      "5. Verify that an error message is displayed indicating that the password is weak.",
+      "6. Verify that the error message provides guidance on password complexity requirements, including minimum length and character types."
+    ],
+    "Expected_Result": "An error message is displayed indicating that the password is weak and provides guidance on password complexity requirements.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_002",
+    "Test_Case_Description": "Verify Minimum Password Length",
+    "Test_Steps": [
+      "1. Navigate to the registration page.",
+      "2. Enter a valid username.",
+      "3. Enter a password that is shorter than the minimum length (e.g., \"pass\").",
+      "4. Click on the \"Create Account\" button.",
+      "5. Verify that an error message is displayed indicating that the password is too short.",
+      "6. Verify that the error message specifies the minimum password length."
+    ],
+    "Expected_Result": "An error message is displayed indicating that the password is too short and specifies the minimum password length.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_003",
+    "Test_Case_Description": "Verify Password Complexity Requirements",
+    "Test_Steps": [
+      "1. Navigate to the registration page.",
+      "2. Enter a valid username.",
+      "3. Enter a password that does not meet the complexity requirements (e.g., \"12345678\").",
+      "4. Click on the \"Create Account\" button.",
+      "5. Verify that an error message is displayed indicating that the password does not meet the complexity requirements.",
+      "6. Verify that the error message provides guidance on the required password complexity, including the minimum length, character types, and special characters."
+    ],
+    "Expected_Result": "An error message is displayed indicating that the password does not meet the complexity requirements and provides guidance on the required password complexity.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_004",
+    "Test_Case_Description": "Verify Login Page Redirect on Invalid Credentials",
+    "Test_Steps": [
+      "1. Navigate to the login page.",
+      "2. Enter an invalid username or password.",
+      "3. Click on the \"Login\" button.",
+      "4. Verify that the user is redirected to the login page.",
+      "5. Verify that an error message is displayed indicating that the login credentials are invalid."
+    ],
+    "Expected_Result": "The user is redirected to the login page and an error message is displayed indicating that the login credentials are invalid.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_005",
+    "Test_Case_Description": "Verify Password Reset Email Content",
+    "Test_Steps": [
+      "1. Navigate to the login page.",
+      "2. Click on the \"Forgot Password\" link.",
+      "3. Enter a valid email address.",
+      "4. Click on the \"Send Reset Link\" button.",
+      "5. Verify that an email is sent to the specified email address.",
+      "6. Verify that the email contains a link to reset the password.",
+      "7. Verify that the email content is clear and concise, informing the user about the password reset process."
+    ],
+    "Expected_Result": "An email is sent to the specified email address containing a link to reset the password and clear instructions on the password reset process.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_006",
+    "Test_Case_Description": "Verify Successful Login with Valid Credentials",
+    "Test_Steps": [
+      "1. Navigate to the login page.",
+      "2. Enter a valid username.",
+      "3. Enter a valid password.",
+      "4. Click on the \"Login\" button.",
+      "5. Verify that the user is successfully logged in and redirected to the home page."
+    ],
+    "Expected_Result": "The user is successfully logged in and redirected to the home page.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_007",
+    "Test_Case_Description": "Verify User Registration with Valid Credentials",
+    "Test_Steps": [
+      "1. Navigate to the registration page.",
+      "2. Enter a valid username.",
+      "3. Enter a valid password that meets the complexity requirements.",
+      "4. Enter a valid email address.",
+      "5. Click on the \"Create Account\" button.",
+      "6. Verify that the user is successfully registered and redirected to the login page."
+    ],
+    "Expected_Result": "The user is successfully registered and redirected to the login page.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_008",
+    "Test_Case_Description": "Verify User Profile Update",
+    "Test_Steps": [
+      "1. Login as a registered user.",
+      "2. Navigate to the user profile page.",
+      "3. Update the user's profile information (e.g., name, email address).",
+      "4. Save the changes.",
+      "5. Verify that the user's profile is updated with the new information."
+    ],
+    "Expected_Result": "The user's profile is updated with the new information.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_009",
+    "Test_Case_Description": "Verify User Logout",
+    "Test_Steps": [
+      "1. Login as a registered user.",
+      "2. Navigate to the logout page or click on the logout button.",
+      "3. Verify that the user is successfully logged out and redirected to the login page."
+    ],
+    "Expected_Result": "The user is successfully logged out and redirected to the login page.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_010",
+    "Test_Case_Description": "Verify Password Reset Functionality",
+    "Test_Steps": [
+      "1. Navigate to the login page.",
+      "2. Click on the \"Forgot Password\" link.",
+      "3. Enter a valid email address associated with a registered user.",
+      "4. Click on the \"Send Reset Link\" button.",
+      "5. Verify that an email is sent to the specified email address.",
+      "6. Click on the password reset link in the email.",
+      "7. Enter a new password that meets the complexity requirements.",
+      "8. Confirm the new password.",
+      "9. Click on the \"Reset Password\" button.",
+      "10. Verify that the password is successfully reset and the user is redirected to the login page."
+    ],
+    "Expected_Result": "The password is successfully reset and the user is redirected to the login page.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_011",
+    "Test_Case_Description": "Verify User Account Deletion",
+    "Test_Steps": [
+      "1. Login as a registered user.",
+      "2. Navigate to the account settings or profile page.",
+      "3. Locate the option to delete the account.",
+      "4. Confirm the account deletion.",
+      "5. Verify that the user's account is successfully deleted."
+    ],
+    "Expected_Result": "The user's account is successfully deleted.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_012",
+    "Test_Case_Description": "Verify User Account Deactivation",
+    "Test_Steps": [
+      "1. Login as a registered user.",
+      "2. Navigate to the account settings or profile page.",
+      "3. Locate the option to deactivate the account.",
+      "4. Confirm the account deactivation.",
+      "5. Verify that the user's account is successfully deactivated."
+    ],
+    "Expected_Result": "The user's account is successfully deactivated.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_013",
+    "Test_Case_Description": "Verify User Account Activation",
+    "Test_Steps": [
+      "1. Deactivate a user account.",
+      "2. Navigate to the account management page.",
+      "3. Locate the deactivated user account.",
+      "4. Activate the user account.",
+      "5. Verify that the user's account is successfully activated."
+    ],
+    "Expected_Result": "The user's account is successfully activated.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_014",
+    "Test_Case_Description": "Verify Email Verification Process",
+    "Test_Steps": [
+      "1. Register a new user account.",
+      "2. Verify that an email is sent to the specified email address with a verification link.",
+      "3. Click on the verification link in the email.",
+      "4. Verify that the user's account is successfully verified."
+    ],
+    "Expected_Result": "The user's account is successfully verified.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_015",
+    "Test_Case_Description": "Verify User Profile Picture Upload",
+    "Test_Steps": [
+      "1. Login as a registered user.",
+      "2. Navigate to the user profile page.",
+      "3. Select a valid image file for the profile picture.",
+      "4. Upload the image.",
+      "5. Verify that the profile picture is successfully uploaded and displayed in the user's profile."
+    ],
+    "Expected_Result": "The profile picture is successfully uploaded and displayed in the user's profile.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_016",
+    "Test_Case_Description": "Verify User Profile Picture Deletion",
+    "Test_Steps": [
+      "1. Login as a registered user.",
+      "2. Navigate to the user profile page.",
+      "3. Locate the option to delete the profile picture.",
+      "4. Confirm the profile picture deletion.",
+      "5. Verify that the profile picture is successfully deleted."
+    ],
+    "Expected_Result": "The profile picture is successfully deleted.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_017",
+    "Test_Case_Description": "Verify User Password Change",
+    "Test_Steps": [
+      "1. Login as a registered user.",
+      "2. Navigate to the account settings or profile page.",
+      "3. Locate the option to change the password.",
+      "4. Enter the current password.",
+      "5. Enter a new password that meets the complexity requirements.",
+      "6. Confirm the new password.",
+      "7. Click on the \"Change Password\" button.",
+      "8. Verify that the password is successfully changed."
+    ],
+    "Expected_Result": "The password is successfully changed.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_018",
+    "Test_Case_Description": "Verify User Account Recovery",
+    "Test_Steps": [
+      "1. Navigate to the login page.",
+      "2. Click on the \"Forgot Password\" link.",
+      "3. Enter a valid email address associated with a registered user.",
+      "4. Click on the \"Send Reset Link\" button.",
+      "5. Verify that an email is sent to the specified email address.",
+      "6. Click on the password reset link in the email.",
+      "7. Enter a new password that meets the complexity requirements.",
+      "8. Confirm the new password.",
+      "9. Click on the \"Reset Password\" button.",
+      "10. Verify that the password is successfully reset and the user is redirected to the login page."
+    ],
+    "Expected_Result": "The password is successfully reset and the user is redirected to the login page.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_019",
+    "Test_Case_Description": "Verify User Account Lockout",
+    "Test_Steps": [
+      "1. Attempt to login with an invalid username or password multiple times (exceeding the allowed attempts).",
+      "2. Verify that the user account is locked out after exceeding the allowed attempts.",
+      "3. Verify that an error message is displayed indicating that the account is locked out."
+    ],
+    "Expected_Result": "The user account is locked out after exceeding the allowed attempts and an error message is displayed indicating that the account is locked out.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_020",
+    "Test_Case_Description": "Verify User Account Unlock",
+    "Test_Steps": [
+      "1. Lock out a user account.",
+      "2. Navigate to the account management page.",
+      "3. Locate the locked user account.",
+      "4. Unlock the user account.",
+      "5. Verify that the user account is successfully unlocked."
+    ],
+    "Expected_Result": "The user account is successfully unlocked.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_021",
+    "Test_Case_Description": "Verify User Account Suspension",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a user account.",
+      "4. Suspend the user account.",
+      "5. Verify that the user account is successfully suspended."
+    ],
+    "Expected_Result": "The user account is successfully suspended.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_022",
+    "Test_Case_Description": "Verify User Account Unsuspension",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a suspended user account.",
+      "4. Unsuspend the user account.",
+      "5. Verify that the user account is successfully unsuspended."
+    ],
+    "Expected_Result": "The user account is successfully unsuspended.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_023",
+    "Test_Case_Description": "Verify User Account Deletion by Administrator",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a user account.",
+      "4. Delete the user account.",
+      "5. Verify that the user account is successfully deleted."
+    ],
+    "Expected_Result": "The user account is successfully deleted.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_024",
+    "Test_Case_Description": "Verify User Account Creation by Administrator",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Create a new user account with valid credentials.",
+      "4. Verify that the user account is successfully created."
+    ],
+    "Expected_Result": "The user account is successfully created.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_025",
+    "Test_Case_Description": "Verify User Account Modification by Administrator",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a user account.",
+      "4. Modify the user account details (e.g., username, email address, role).",
+      "5. Save the changes.",
+      "6. Verify that the user account details are successfully modified."
+    ],
+    "Expected_Result": "The user account details are successfully modified.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_026",
+    "Test_Case_Description": "Verify User Account Role Assignment",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a user account.",
+      "4. Assign a specific role to the user account.",
+      "5. Verify that the user account has the assigned role."
+    ],
+    "Expected_Result": "The user account has the assigned role.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_027",
+    "Test_Case_Description": "Verify User Account Role Removal",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a user account with a specific role.",
+      "4. Remove the role from the user account.",
+      "5. Verify that the user account no longer has the assigned role."
+    ],
+    "Expected_Result": "The user account no longer has the assigned role.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_028",
+    "Test_Case_Description": "Verify User Account Password Reset by Administrator",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a user account.",
+      "4. Reset the user's password.",
+      "5. Verify that the user's password is successfully reset."
+    ],
+    "Expected_Result": "The user's password is successfully reset.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_029",
+    "Test_Case_Description": "Verify User Account Deactivation by Administrator",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a user account.",
+      "4. Deactivate the user account.",
+      "5. Verify that the user account is successfully deactivated."
+    ],
+    "Expected_Result": "The user account is successfully deactivated.",
+    "Test_Type": "Functional"
+  },
+  {
+    "Test_Case_Id": "TC_030",
+    "Test_Case_Description": "Verify User Account Activation by Administrator",
+    "Test_Steps": [
+      "1. Login as an administrator.",
+      "2. Navigate to the user management page.",
+      "3. Locate a deactivated user account.",
+      "4. Activate the user account.",
+      "5. Verify that the user account is successfully activated."
+    ],
+    "Expected_Result": "The user account is successfully activated.",
+    "Test_Type": "Functional"
+  }
+]
+```
