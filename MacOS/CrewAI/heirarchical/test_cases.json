@@ -1,408 +1,853 @@
 ```json
 [
   {
-    "Test_Case_Id": "TC_001",
-    "Test_Case_Description": "Verify Weak Password Error Message",
-    "Test_Steps": [
-      "1. Navigate to the registration page.",
-      "2. Enter a valid username.",
-      "3. Enter a weak password (e.g., \"password\").",
-      "4. Click on the \"Create Account\" button.",
-      "5. Verify that an error message is displayed indicating that the password is weak.",
-      "6. Verify that the error message provides guidance on password complexity requirements, including minimum length and character types."
+    "id": "TC_001",
+    "test_case_name": "Verify Login Functionality",
+    "test_type": "Functional",
+    "test_scenario": "User should be able to login with valid credentials",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the login page",
+        "expected_result": "Login page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter valid username and password",
+        "expected_result": "Username and password fields accept input"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the login button",
+        "expected_result": "User is successfully logged in and redirected to the home page"
+      }
     ],
-    "Expected_Result": "An error message is displayed indicating that the password is weak and provides guidance on password complexity requirements.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "testuser",
+      "password": "testpassword"
+    }
   },
   {
-    "Test_Case_Id": "TC_002",
-    "Test_Case_Description": "Verify Minimum Password Length",
-    "Test_Steps": [
-      "1. Navigate to the registration page.",
-      "2. Enter a valid username.",
-      "3. Enter a password that is shorter than the minimum length (e.g., \"pass\").",
-      "4. Click on the \"Create Account\" button.",
-      "5. Verify that an error message is displayed indicating that the password is too short.",
-      "6. Verify that the error message specifies the minimum password length."
+    "id": "TC_002",
+    "test_case_name": "Verify Logout Functionality",
+    "test_type": "Functional",
+    "test_scenario": "User should be able to logout successfully",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Click on the logout button",
+        "expected_result": "User is successfully logged out and redirected to the login page"
+      }
     ],
-    "Expected_Result": "An error message is displayed indicating that the password is too short and specifies the minimum password length.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_003",
-    "Test_Case_Description": "Verify Password Complexity Requirements",
-    "Test_Steps": [
-      "1. Navigate to the registration page.",
-      "2. Enter a valid username.",
-      "3. Enter a password that does not meet the complexity requirements (e.g., \"12345678\").",
-      "4. Click on the \"Create Account\" button.",
-      "5. Verify that an error message is displayed indicating that the password does not meet the complexity requirements.",
-      "6. Verify that the error message provides guidance on the required password complexity, including the minimum length, character types, and special characters."
+    "id": "TC_003",
+    "test_case_name": "Verify Login with Invalid Credentials",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when entering invalid credentials",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the login page",
+        "expected_result": "Login page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter invalid username or password",
+        "expected_result": "An error message is displayed indicating invalid credentials"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the login button",
+        "expected_result": "User remains on the login page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "An error message is displayed indicating that the password does not meet the complexity requirements and provides guidance on the required password complexity.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "invalid_username": "invaliduser",
+      "invalid_password": "invalidpassword"
+    }
   },
   {
-    "Test_Case_Id": "TC_004",
-    "Test_Case_Description": "Verify Login Page Redirect on Invalid Credentials",
-    "Test_Steps": [
-      "1. Navigate to the login page.",
-      "2. Enter an invalid username or password.",
-      "3. Click on the \"Login\" button.",
-      "4. Verify that the user is redirected to the login page.",
-      "5. Verify that an error message is displayed indicating that the login credentials are invalid."
+    "id": "TC_004",
+    "test_case_name": "Verify UI Elements",
+    "test_type": "UI",
+    "test_scenario": "All UI elements should be displayed correctly and function as expected",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the home page",
+        "expected_result": "Home page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Verify that all buttons, links, and text fields are displayed correctly",
+        "expected_result": "All UI elements are displayed correctly"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Interact with each UI element (click buttons, enter text, etc.)",
+        "expected_result": "UI elements function as expected"
+      }
     ],
-    "Expected_Result": "The user is redirected to the login page and an error message is displayed indicating that the login credentials are invalid.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_005",
-    "Test_Case_Description": "Verify Password Reset Email Content",
-    "Test_Steps": [
-      "1. Navigate to the login page.",
-      "2. Click on the \"Forgot Password\" link.",
-      "3. Enter a valid email address.",
-      "4. Click on the \"Send Reset Link\" button.",
-      "5. Verify that an email is sent to the specified email address.",
-      "6. Verify that the email contains a link to reset the password.",
-      "7. Verify that the email content is clear and concise, informing the user about the password reset process."
+    "id": "TC_005",
+    "test_case_name": "Verify Page Load Time",
+    "test_type": "Performance",
+    "test_scenario": "The application should load within a reasonable time frame",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Open the application in a web browser",
+        "expected_result": "Application opens successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Measure the time taken for the home page to load",
+        "expected_result": "Page load time should be less than 3 seconds"
+      }
     ],
-    "Expected_Result": "An email is sent to the specified email address containing a link to reset the password and clear instructions on the password reset process.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_006",
-    "Test_Case_Description": "Verify Successful Login with Valid Credentials",
-    "Test_Steps": [
-      "1. Navigate to the login page.",
-      "2. Enter a valid username.",
-      "3. Enter a valid password.",
-      "4. Click on the \"Login\" button.",
-      "5. Verify that the user is successfully logged in and redirected to the home page."
+    "id": "TC_006",
+    "test_case_name": "Verify SQL Injection Vulnerability",
+    "test_type": "Security",
+    "test_scenario": "The application should be secure against SQL injection attacks",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Attempt to login with a username containing SQL injection code",
+        "expected_result": "Application should prevent the injection and display an error message"
+      }
     ],
-    "Expected_Result": "The user is successfully logged in and redirected to the home page.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "testuser'; DROP TABLE users; --"
+    }
   },
   {
-    "Test_Case_Id": "TC_007",
-    "Test_Case_Description": "Verify User Registration with Valid Credentials",
-    "Test_Steps": [
-      "1. Navigate to the registration page.",
-      "2. Enter a valid username.",
-      "3. Enter a valid password that meets the complexity requirements.",
-      "4. Enter a valid email address.",
-      "5. Click on the \"Create Account\" button.",
-      "6. Verify that the user is successfully registered and redirected to the login page."
+    "id": "TC_007",
+    "test_case_name": "Verify Cross-Site Scripting (XSS) Vulnerability",
+    "test_type": "Security",
+    "test_scenario": "The application should be secure against XSS attacks",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Enter XSS code in a text field and submit the form",
+        "expected_result": "Application should prevent the XSS code from being executed and display an error message"
+      }
     ],
-    "Expected_Result": "The user is successfully registered and redirected to the login page.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "xss_code": "<script>alert('XSS Attack')</script>"
+    }
   },
   {
-    "Test_Case_Id": "TC_008",
-    "Test_Case_Description": "Verify User Profile Update",
-    "Test_Steps": [
-      "1. Login as a registered user.",
-      "2. Navigate to the user profile page.",
-      "3. Update the user's profile information (e.g., name, email address).",
-      "4. Save the changes.",
-      "5. Verify that the user's profile is updated with the new information."
+    "id": "TC_008",
+    "test_case_name": "Verify Regression Test - Login Functionality",
+    "test_type": "Regression",
+    "test_scenario": "Verify that the login functionality works as expected after code changes",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the login page",
+        "expected_result": "Login page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter valid username and password",
+        "expected_result": "Username and password fields accept input"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the login button",
+        "expected_result": "User is successfully logged in and redirected to the home page"
+      }
     ],
-    "Expected_Result": "The user's profile is updated with the new information.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "testuser",
+      "password": "testpassword"
+    }
   },
   {
-    "Test_Case_Id": "TC_009",
-    "Test_Case_Description": "Verify User Logout",
-    "Test_Steps": [
-      "1. Login as a registered user.",
-      "2. Navigate to the logout page or click on the logout button.",
-      "3. Verify that the user is successfully logged out and redirected to the login page."
+    "id": "TC_009",
+    "test_case_name": "Verify Regression Test - Logout Functionality",
+    "test_type": "Regression",
+    "test_scenario": "Verify that the logout functionality works as expected after code changes",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Click on the logout button",
+        "expected_result": "User is successfully logged out and redirected to the login page"
+      }
     ],
-    "Expected_Result": "The user is successfully logged out and redirected to the login page.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_010",
-    "Test_Case_Description": "Verify Password Reset Functionality",
-    "Test_Steps": [
-      "1. Navigate to the login page.",
-      "2. Click on the \"Forgot Password\" link.",
-      "3. Enter a valid email address associated with a registered user.",
-      "4. Click on the \"Send Reset Link\" button.",
-      "5. Verify that an email is sent to the specified email address.",
-      "6. Click on the password reset link in the email.",
-      "7. Enter a new password that meets the complexity requirements.",
-      "8. Confirm the new password.",
-      "9. Click on the \"Reset Password\" button.",
-      "10. Verify that the password is successfully reset and the user is redirected to the login page."
+    "id": "TC_010",
+    "test_case_name": "Verify Registration Functionality",
+    "test_type": "Functional",
+    "test_scenario": "User should be able to register a new account with valid data",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the registration page",
+        "expected_result": "Registration page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter valid username, email address, and password",
+        "expected_result": "All fields are accepted"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the register button",
+        "expected_result": "User is successfully registered and redirected to the login page"
+      }
     ],
-    "Expected_Result": "The password is successfully reset and the user is redirected to the login page.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "newuser",
+      "password": "newpassword",
+      "email": "newuser@example.com"
+    }
   },
   {
-    "Test_Case_Id": "TC_011",
-    "Test_Case_Description": "Verify User Account Deletion",
-    "Test_Steps": [
-      "1. Login as a registered user.",
-      "2. Navigate to the account settings or profile page.",
-      "3. Locate the option to delete the account.",
-      "4. Confirm the account deletion.",
-      "5. Verify that the user's account is successfully deleted."
+    "id": "TC_011",
+    "test_case_name": "Verify Registration with Existing Username",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when attempting to register with an existing username",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the registration page",
+        "expected_result": "Registration page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter an existing username and valid data for other fields",
+        "expected_result": "The username field is highlighted with an error message"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the register button",
+        "expected_result": "User remains on the registration page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "The user's account is successfully deleted.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "testuser",
+      "password": "newpassword",
+      "email": "newuser@example.com"
+    }
   },
   {
-    "Test_Case_Id": "TC_012",
-    "Test_Case_Description": "Verify User Account Deactivation",
-    "Test_Steps": [
-      "1. Login as a registered user.",
-      "2. Navigate to the account settings or profile page.",
-      "3. Locate the option to deactivate the account.",
-      "4. Confirm the account deactivation.",
-      "5. Verify that the user's account is successfully deactivated."
+    "id": "TC_012",
+    "test_case_name": "Verify Registration with Invalid Email Address",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when attempting to register with an invalid email address",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the registration page",
+        "expected_result": "Registration page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter an invalid email address and valid data for other fields",
+        "expected_result": "The email field is highlighted with an error message"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the register button",
+        "expected_result": "User remains on the registration page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "The user's account is successfully deactivated.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "newuser",
+      "password": "newpassword",
+      "email": "invalid.email"
+    }
   },
   {
-    "Test_Case_Id": "TC_013",
-    "Test_Case_Description": "Verify User Account Activation",
-    "Test_Steps": [
-      "1. Deactivate a user account.",
-      "2. Navigate to the account management page.",
-      "3. Locate the deactivated user account.",
-      "4. Activate the user account.",
-      "5. Verify that the user's account is successfully activated."
+    "id": "TC_013",
+    "test_case_name": "Verify Password Reset Functionality",
+    "test_type": "Functional",
+    "test_scenario": "User should be able to reset their password",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the password reset page",
+        "expected_result": "Password reset page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter a valid email address",
+        "expected_result": "The email field is accepted"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the reset password button",
+        "expected_result": "The user receives an email with a password reset link"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Click the password reset link in the email",
+        "expected_result": "The user is redirected to the password reset page with a unique token"
+      },
+      {
+        "step_number": "5",
+        "step_description": "Enter a new password and confirm the password",
+        "expected_result": "The new password fields are accepted"
+      },
+      {
+        "step_number": "6",
+        "step_description": "Click on the update password button",
+        "expected_result": "The user's password is successfully updated and they are redirected to the login page"
+      }
     ],
-    "Expected_Result": "The user's account is successfully activated.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "email": "testuser@example.com"
+    }
   },
   {
-    "Test_Case_Id": "TC_014",
-    "Test_Case_Description": "Verify Email Verification Process",
-    "Test_Steps": [
-      "1. Register a new user account.",
-      "2. Verify that an email is sent to the specified email address with a verification link.",
-      "3. Click on the verification link in the email.",
-      "4. Verify that the user's account is successfully verified."
+    "id": "TC_014",
+    "test_case_name": "Verify Password Reset with Invalid Email Address",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when attempting to reset their password with an invalid email address",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the password reset page",
+        "expected_result": "Password reset page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter an invalid email address",
+        "expected_result": "The email field is highlighted with an error message"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the reset password button",
+        "expected_result": "The user remains on the password reset page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "The user's account is successfully verified.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "email": "invalid.email"
+    }
   },
   {
-    "Test_Case_Id": "TC_015",
-    "Test_Case_Description": "Verify User Profile Picture Upload",
-    "Test_Steps": [
-      "1. Login as a registered user.",
-      "2. Navigate to the user profile page.",
-      "3. Select a valid image file for the profile picture.",
-      "4. Upload the image.",
-      "5. Verify that the profile picture is successfully uploaded and displayed in the user's profile."
+    "id": "TC_015",
+    "test_case_name": "Verify User Profile Update Functionality",
+    "test_type": "Functional",
+    "test_scenario": "User should be able to update their profile information",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Enter valid data for the profile fields",
+        "expected_result": "All fields are accepted"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Click on the update profile button",
+        "expected_result": "User profile is successfully updated and the changes are reflected on the profile page"
+      }
     ],
-    "Expected_Result": "The profile picture is successfully uploaded and displayed in the user's profile.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "firstName": "Updated",
+      "lastName": "User",
+      "email": "updateduser@example.com"
+    }
   },
   {
-    "Test_Case_Id": "TC_016",
-    "Test_Case_Description": "Verify User Profile Picture Deletion",
-    "Test_Steps": [
-      "1. Login as a registered user.",
-      "2. Navigate to the user profile page.",
-      "3. Locate the option to delete the profile picture.",
-      "4. Confirm the profile picture deletion.",
-      "5. Verify that the profile picture is successfully deleted."
+    "id": "TC_016",
+    "test_case_name": "Verify Profile Update with Existing Username",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when attempting to update their profile with an existing username",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Enter an existing username and valid data for other fields",
+        "expected_result": "The username field is highlighted with an error message"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Click on the update profile button",
+        "expected_result": "User remains on the profile page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "The profile picture is successfully deleted.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "testuser",
+      "firstName": "Updated",
+      "lastName": "User",
+      "email": "updateduser@example.com"
+    }
   },
   {
-    "Test_Case_Id": "TC_017",
-    "Test_Case_Description": "Verify User Password Change",
-    "Test_Steps": [
-      "1. Login as a registered user.",
-      "2. Navigate to the account settings or profile page.",
-      "3. Locate the option to change the password.",
-      "4. Enter the current password.",
-      "5. Enter a new password that meets the complexity requirements.",
-      "6. Confirm the new password.",
-      "7. Click on the \"Change Password\" button.",
-      "8. Verify that the password is successfully changed."
+    "id": "TC_017",
+    "test_case_name": "Verify Profile Update with Invalid Email Address",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when attempting to update their profile with an invalid email address",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Enter an invalid email address and valid data for other fields",
+        "expected_result": "The email field is highlighted with an error message"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Click on the update profile button",
+        "expected_result": "User remains on the profile page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "The password is successfully changed.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "firstName": "Updated",
+      "lastName": "User",
+      "email": "invalid.email"
+    }
   },
   {
-    "Test_Case_Id": "TC_018",
-    "Test_Case_Description": "Verify User Account Recovery",
-    "Test_Steps": [
-      "1. Navigate to the login page.",
-      "2. Click on the \"Forgot Password\" link.",
-      "3. Enter a valid email address associated with a registered user.",
-      "4. Click on the \"Send Reset Link\" button.",
-      "5. Verify that an email is sent to the specified email address.",
-      "6. Click on the password reset link in the email.",
-      "7. Enter a new password that meets the complexity requirements.",
-      "8. Confirm the new password.",
-      "9. Click on the \"Reset Password\" button.",
-      "10. Verify that the password is successfully reset and the user is redirected to the login page."
+    "id": "TC_018",
+    "test_case_name": "Verify Account Deletion Functionality",
+    "test_type": "Functional",
+    "test_scenario": "User should be able to delete their account",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the account settings page",
+        "expected_result": "Account settings page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the delete account button",
+        "expected_result": "The user is prompted with a confirmation dialog"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Confirm the deletion",
+        "expected_result": "The user's account is successfully deleted and they are redirected to the login page"
+      }
     ],
-    "Expected_Result": "The password is successfully reset and the user is redirected to the login page.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_019",
-    "Test_Case_Description": "Verify User Account Lockout",
-    "Test_Steps": [
-      "1. Attempt to login with an invalid username or password multiple times (exceeding the allowed attempts).",
-      "2. Verify that the user account is locked out after exceeding the allowed attempts.",
-      "3. Verify that an error message is displayed indicating that the account is locked out."
+    "id": "TC_019",
+    "test_case_name": "Verify Data Validation - Registration",
+    "test_type": "Functional",
+    "test_scenario": "Verify that the registration form validates data correctly",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the registration page",
+        "expected_result": "Registration page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter invalid data in a required field (e.g., empty username, invalid email format, password less than minimum length)",
+        "expected_result": "The corresponding field is highlighted with an error message"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the register button",
+        "expected_result": "User remains on the registration page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "The user account is locked out after exceeding the allowed attempts and an error message is displayed indicating that the account is locked out.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "invalid_username": "",
+      "invalid_email": "invalid.email",
+      "invalid_password": "shortpass"
+    }
   },
   {
-    "Test_Case_Id": "TC_020",
-    "Test_Case_Description": "Verify User Account Unlock",
-    "Test_Steps": [
-      "1. Lock out a user account.",
-      "2. Navigate to the account management page.",
-      "3. Locate the locked user account.",
-      "4. Unlock the user account.",
-      "5. Verify that the user account is successfully unlocked."
+    "id": "TC_020",
+    "test_case_name": "Verify Data Validation - Profile Update",
+    "test_type": "Functional",
+    "test_scenario": "Verify that the profile update form validates data correctly",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Enter invalid data in a profile field (e.g., invalid email format, invalid phone number format, invalid date format)",
+        "expected_result": "The corresponding field is highlighted with an error message"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Click on the update profile button",
+        "expected_result": "User remains on the profile page and the error message is displayed"
+      }
     ],
-    "Expected_Result": "The user account is successfully unlocked.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "invalid_email": "invalid.email",
+      "invalid_phone": "123-456-789",
+      "invalid_date": "2023-02-30"
+    }
   },
   {
-    "Test_Case_Id": "TC_021",
-    "Test_Case_Description": "Verify User Account Suspension",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a user account.",
-      "4. Suspend the user account.",
-      "5. Verify that the user account is successfully suspended."
+    "id": "TC_021",
+    "test_case_name": "Verify UI Testing - Registration Page",
+    "test_type": "UI",
+    "test_scenario": "Verify the UI elements of the registration page are displayed correctly and function as expected",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the registration page",
+        "expected_result": "Registration page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Verify the presence of all required input fields (username, email, password, etc.)",
+        "expected_result": "All fields are displayed correctly with appropriate labels"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Verify the presence of the register button",
+        "expected_result": "The register button is displayed correctly and is clickable"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Verify the presence of a 'Login' link",
+        "expected_result": "The link is displayed correctly and is clickable"
+      }
     ],
-    "Expected_Result": "The user account is successfully suspended.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_022",
-    "Test_Case_Description": "Verify User Account Unsuspension",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a suspended user account.",
-      "4. Unsuspend the user account.",
-      "5. Verify that the user account is successfully unsuspended."
+    "id": "TC_022",
+    "test_case_name": "Verify UI Testing - Profile Page",
+    "test_type": "UI",
+    "test_scenario": "Verify the UI elements of the profile page are displayed correctly and function as expected",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Verify the presence of all profile fields (username, email, name, etc.)",
+        "expected_result": "All fields are displayed correctly with appropriate labels"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Verify the presence of the update profile button",
+        "expected_result": "The update profile button is displayed correctly and is clickable"
+      },
+      {
+        "step_number": "5",
+        "step_description": "Verify the presence of a 'Change Password' link",
+        "expected_result": "The link is displayed correctly and is clickable"
+      }
     ],
-    "Expected_Result": "The user account is successfully unsuspended.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_023",
-    "Test_Case_Description": "Verify User Account Deletion by Administrator",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a user account.",
-      "4. Delete the user account.",
-      "5. Verify that the user account is successfully deleted."
+    "id": "TC_023",
+    "test_case_name": "Verify Performance Testing - Registration Page",
+    "test_type": "Performance",
+    "test_scenario": "Verify the registration page loads within acceptable time limits under various load conditions",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Simulate a high number of concurrent users accessing the registration page",
+        "expected_result": "The registration page loads within 3 seconds for 95% of users"
+      }
     ],
-    "Expected_Result": "The user account is successfully deleted.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_024",
-    "Test_Case_Description": "Verify User Account Creation by Administrator",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Create a new user account with valid credentials.",
-      "4. Verify that the user account is successfully created."
+    "id": "TC_024",
+    "test_case_name": "Verify Performance Testing - Profile Page",
+    "test_type": "Performance",
+    "test_scenario": "Verify the profile page loads within acceptable time limits under various load conditions",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Simulate a high number of concurrent users accessing the profile page",
+        "expected_result": "The profile page loads within 3 seconds for 95% of users"
+      }
     ],
-    "Expected_Result": "The user account is successfully created.",
-    "Test_Type": "Functional"
+    "test_data": {}
   },
   {
-    "Test_Case_Id": "TC_025",
-    "Test_Case_Description": "Verify User Account Modification by Administrator",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a user account.",
-      "4. Modify the user account details (e.g., username, email address, role).",
-      "5. Save the changes.",
-      "6. Verify that the user account details are successfully modified."
+    "id": "TC_025",
+    "test_case_name": "Verify Security Testing - Registration Page",
+    "test_type": "Security",
+    "test_scenario": "Verify the registration page is secure against common security vulnerabilities",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Perform a vulnerability scan on the registration page",
+        "expected_result": "No critical or high-severity vulnerabilities are found"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Verify the use of HTTPS for secure communication",
+        "expected_result": "The registration page uses HTTPS protocol"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Verify the implementation of input validation to prevent SQL injection attacks",
+        "expected_result": "Input validation is implemented correctly to prevent SQL injection attacks"
+      }
     ],
-    "Expected_Result": "The user account details are successfully modified.",
-    "Test_Type": "Functional"
+    "test_data": {},
+    "test_type": "Security",
+    "priority": "High"
   },
   {
-    "Test_Case_Id": "TC_026",
-    "Test_Case_Description": "Verify User Account Role Assignment",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a user account.",
-      "4. Assign a specific role to the user account.",
-      "5. Verify that the user account has the assigned role."
+    "id": "TC_026",
+    "test_case_name": "Verify Security Testing - Profile Page",
+    "test_type": "Security",
+    "test_scenario": "Verify the profile page is secure against common security vulnerabilities",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Perform a vulnerability scan on the profile page",
+        "expected_result": "No critical or high-severity vulnerabilities are found"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Verify the use of HTTPS for secure communication",
+        "expected_result": "The profile page uses HTTPS protocol"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Verify the implementation of input validation to prevent SQL injection attacks",
+        "expected_result": "Input validation is implemented correctly to prevent SQL injection attacks"
+      }
     ],
-    "Expected_Result": "The user account has the assigned role.",
-    "Test_Type": "Functional"
+    "test_data": {},
+    "test_type": "Security",
+    "priority": "High"
   },
   {
-    "Test_Case_Id": "TC_027",
-    "Test_Case_Description": "Verify User Account Role Removal",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a user account with a specific role.",
-      "4. Remove the role from the user account.",
-      "5. Verify that the user account no longer has the assigned role."
+    "id": "TC_027",
+    "test_case_name": "Verify Regression Test - Registration Functionality",
+    "test_type": "Regression",
+    "test_scenario": "Verify that the registration functionality works as expected after code changes",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Navigate to the registration page",
+        "expected_result": "Registration page is displayed successfully"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Enter valid username, email address, and password",
+        "expected_result": "All fields are accepted"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the register button",
+        "expected_result": "User is successfully registered and redirected to the login page"
+      }
     ],
-    "Expected_Result": "The user account no longer has the assigned role.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "username": "newuser",
+      "password": "newpassword",
+      "email": "newuser@example.com"
+    }
   },
   {
-    "Test_Case_Id": "TC_028",
-    "Test_Case_Description": "Verify User Account Password Reset by Administrator",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a user account.",
-      "4. Reset the user's password.",
-      "5. Verify that the user's password is successfully reset."
+    "id": "TC_028",
+    "test_case_name": "Verify Regression Test - Profile Update Functionality",
+    "test_type": "Regression",
+    "test_scenario": "Verify that the profile update functionality works as expected after code changes",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Enter valid data for the profile fields",
+        "expected_result": "All fields are accepted"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Click on the update profile button",
+        "expected_result": "User profile is successfully updated and the changes are reflected on the profile page"
+      }
     ],
-    "Expected_Result": "The user's password is successfully reset.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "firstName": "Updated",
+      "lastName": "User",
+      "email": "updateduser@example.com"
+    }
   },
   {
-    "Test_Case_Id": "TC_029",
-    "Test_Case_Description": "Verify User Account Deactivation by Administrator",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a user account.",
-      "4. Deactivate the user account.",
-      "5. Verify that the user account is successfully deactivated."
+    "id": "TC_029",
+    "test_case_name": "Verify Password Change Functionality",
+    "test_type": "Functional",
+    "test_scenario": "User should be able to change their password",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the 'Change Password' link",
+        "expected_result": "Password change page is displayed successfully"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Enter current password",
+        "expected_result": "Current password field accepts input"
+      },
+      {
+        "step_number": "5",
+        "step_description": "Enter new password and confirm the new password",
+        "expected_result": "New password fields accept input"
+      },
+      {
+        "step_number": "6",
+        "step_description": "Click on the update password button",
+        "expected_result": "The user's password is successfully updated and they are redirected to the login page or a success message is displayed"
+      }
     ],
-    "Expected_Result": "The user account is successfully deactivated.",
-    "Test_Type": "Functional"
+    "test_data": {
+      "current_password": "testpassword",
+      "new_password": "newpassword"
+    }
   },
   {
-    "Test_Case_Id": "TC_030",
-    "Test_Case_Description": "Verify User Account Activation by Administrator",
-    "Test_Steps": [
-      "1. Login as an administrator.",
-      "2. Navigate to the user management page.",
-      "3. Locate a deactivated user account.",
-      "4. Activate the user account.",
-      "5. Verify that the user account is successfully activated."
+    "id": "TC_030",
+    "test_case_name": "Verify Password Change with Invalid Current Password",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when attempting to change their password with an invalid current password",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the 'Change Password' link",
+        "expected_result": "Password change page is displayed successfully"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Enter invalid current password",
+        "expected_result": "An error message is displayed indicating the current password is incorrect"
+      }
     ],
-    "Expected_Result": "The user account is successfully activated.",
-    "Test_Type": "Functional"
-  }
-]
-```
+    "test_data": {
+      "current_password": "invalidpassword",
+      "new_password": "newpassword"
+    }
+  },
+  {
+    "id": "TC_031",
+    "test_case_name": "Verify Password Change with Weak Password",
+    "test_type": "Functional",
+    "test_scenario": "User should be prompted with an error message when attempting to change their password with a weak password",
+    "test_steps": [
+      {
+        "step_number": "1",
+        "step_description": "Login to the application with valid credentials",
+        "expected_result": "User is successfully logged in"
+      },
+      {
+        "step_number": "2",
+        "step_description": "Navigate to the profile page",
+        "expected_result": "Profile page is displayed successfully"
+      },
+      {
+        "step_number": "3",
+        "step_description": "Click on the 'Change Password' link",
+        "expected_result": "Password change page is displayed successfully"
+      },
+      {
+        "step_number": "4",
+        "step_description": "Enter current password",
+        "expected_result": "Current password field accepts input"
+      },
+      {
+        "step_number": "5",
+        "step_description": "Enter a weak password (e.g., 'password') and confirm the new password",
+        "expected_result": "An error message is displayed indicating the password does not meet complexity requirements"
+      }
+    ],
+    "test_data": {

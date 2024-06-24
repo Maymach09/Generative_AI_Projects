@@ -1,5 +1,5 @@
 from crewai import Agent
-from tools import file_read_tool, file_write_tool, web_tool
+from tools import txt_read_tool, pdf_read_tool, file_write_tool, web_tool
 from tools import llm
 
 # Define Agents

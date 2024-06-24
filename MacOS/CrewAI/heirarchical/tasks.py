@@ -1,6 +1,6 @@
 from agents import test_manager, test_planner, test_scenario_designer, test_case_developer
 from crewai import Task
-from tools import web_tool
+from tools import txt_read_tool, pdf_read_tool, file_write_tool, web_tool
 
 
 # Define Tasks

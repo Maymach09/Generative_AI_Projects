@@ -3,6 +3,7 @@ from crewai_tools import BaseTool, SerperDevTool
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
+import PyPDF2
 
 # Load environment variables
 load_dotenv()
@@ -19,7 +20,7 @@ SERPER_API_KEY = os.getenv("SERPER_API_KEY")
 # Initialize the tool for internet searching capabilities
 web_tool = SerperDevTool()
 
-# Tool to read input from a file
+#Tool to read input from a file
 class ReadBRDTool(BaseTool):
     name: str = "Read BRD Tool"
     description: str = "Reads the content of the Business Requirement Document (BRD)."
@@ -29,7 +30,7 @@ class ReadBRDTool(BaseTool):
             content = file.read()
         return content
     
-file_read_tool = ReadBRDTool()
+txt_read_tool = ReadBRDTool()
 
 #Tool to write output to a file
 class FileWriteTool(BaseTool):
@@ -42,3 +43,21 @@ class FileWriteTool(BaseTool):
         return f"Content written to {file_path}"
 
 file_write_tool = FileWriteTool()
+
+#Read PDF document
+
+class ReadPDFTool(BaseTool):
+    name: str = "Read BRD Tool"
+    description: str = "Reads the content of the Business Requirement Document (BRD)."
+
+    def _run(self, file_path: str) -> str:
+        content = ""
+        with open(file_path, 'rb') as file:
+            reader = PyPDF2.PdfReader(file)
+            num_pages = len(reader.pages)
+            for page in range(num_pages):
+                page_content = reader.pages[page].extract_text()
+                content += page_content
+        return content
+    
+pdf_read_tool = ReadPDFTool()

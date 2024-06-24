@@ -1,1 +1,271 @@
-Agent stopped due to iteration limit or time limit.
+## Test Plan
+
+**Test Plan ID:**  DHM-TP-1.1
+
+**Test Plan Name:** Day Health Manager Version 1.1 Test Plan
+
+**Test Plan Version:** 1.0
+
+**Test Plan Author:** [Your Name]
+
+**Test Plan Date:** [Date]
+
+**Test Plan Objective:** To ensure that Day Health Manager Version 1.1 meets all functional and non-functional requirements as defined in the Software Requirements Specification (SRS) document.
+
+**Test Plan Scope:** This test plan covers all aspects of the Day Health Manager system, including:
+
+* **Database:** Testing the database schema, data integrity, and performance.
+* **Clinician Portal:** Testing all functionality within the clinician portal, including user management, patient record management, scheduling, and reporting.
+* **Session Application:** Testing the session application used by patients, including user interface, session management, and data capture.
+
+**Test Plan Environment:**
+
+* **Hardware:** [List the hardware specifications for the test environment, e.g., server specifications, client machines]
+* **Software:** [List the software specifications for the test environment, e.g., operating system, database software, web server software]
+* **Database:** [Specify the database used, e.g., MySQL, PostgreSQL]
+
+**Test Plan Schedule:**
+
+* **Phase 1:**  [Date] - [Date]:  Functional Testing of Database, Clinician Portal, and Session Application
+* **Phase 2:** [Date] - [Date]: Non-Functional Testing (Performance, Security, Usability)
+* **Phase 3:** [Date] - [Date]: Regression Testing
+
+**Test Plan Resources:**
+
+* **Test Team:** [List the members of the testing team, their roles, and contact information]
+* **Tools:** [List the testing tools used, e.g., JIRA, Selenium, Postman]
+
+**Test Plan Risks:**
+
+* **Delay in access to test environment:**  Mitigation:  Secure access to the test environment as early as possible.
+* **Insufficient test data:** Mitigation:  Create realistic test data sets to cover various scenarios.
+* **Lack of communication between development and testing teams:** Mitigation:  Establish clear communication channels and regular meetings.
+
+**Test Plan Assumptions:**
+
+* The SRS document is complete and accurate.
+* The test environment will be available as per the schedule.
+* The development team will provide necessary support and bug fixes.
+
+**Test Plan Dependencies:**
+
+* Completion of development of all features as defined in the SRS document.
+* Availability of test data.
+
+**Test Cases:**
+
+**Functional Testing:**
+
+**Database**
+
+* **Test Case ID:** DHM-TC-DB-01
+* **Test Case Name:** Verify database schema integrity.
+* **Test Case Objective:** To ensure that the database schema is correctly implemented and meets the requirements defined in the SRS document.
+* **Test Case Preconditions:** The database is set up and populated with test data.
+* **Test Case Steps:**
+    * Query the database for specific data points.
+    * Verify that the data retrieved matches the expected values.
+* **Test Case Expected Results:** The database schema is correctly implemented and the data retrieved matches the expected values.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-DB-02
+* **Test Case Name:** Verify data integrity.
+* **Test Case Objective:** To ensure that the data stored in the database is accurate and consistent.
+* **Test Case Preconditions:** The database is set up and populated with test data.
+* **Test Case Steps:**
+    * Perform data validation checks on various data points.
+    * Verify that the data is within acceptable ranges and conforms to the defined data types.
+* **Test Case Expected Results:** The data stored in the database is accurate and consistent.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-DB-03
+* **Test Case Name:** Verify database performance.
+* **Test Case Objective:** To ensure that the database can handle the expected workload and provide acceptable response times.
+* **Test Case Preconditions:** The database is set up and populated with test data.
+* **Test Case Steps:**
+    * Perform load testing on the database using a realistic workload.
+    * Measure the response times for various database operations.
+* **Test Case Expected Results:** The database meets the performance requirements defined in the SRS document.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+**Clinician Portal**
+
+* **Test Case ID:** DHM-TC-CP-01
+* **Test Case Name:** Verify user login and authentication.
+* **Test Case Objective:** To ensure that clinicians can successfully log in to the portal using valid credentials.
+* **Test Case Preconditions:** The clinician portal is accessible.
+* **Test Case Steps:**
+    * Enter valid username and password.
+    * Click on the login button.
+    * Verify that the user is successfully logged in.
+* **Test Case Expected Results:** The user is successfully logged in to the portal.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-CP-02
+* **Test Case Name:** Verify patient record management.
+* **Test Case Objective:** To ensure that clinicians can create, edit, and view patient records.
+* **Test Case Preconditions:** A clinician is logged in to the portal.
+* **Test Case Steps:**
+    * Create a new patient record.
+    * Edit an existing patient record.
+    * View a patient record.
+* **Test Case Expected Results:** The clinician can successfully create, edit, and view patient records.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-CP-03
+* **Test Case Name:** Verify scheduling functionality.
+* **Test Case Objective:** To ensure that clinicians can schedule sessions for patients.
+* **Test Case Preconditions:** A clinician is logged in to the portal.
+* **Test Case Steps:**
+    * Schedule a new session for a patient.
+    * Edit an existing session.
+    * Cancel a session.
+* **Test Case Expected Results:** The clinician can successfully schedule, edit, and cancel sessions.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-CP-04
+* **Test Case Name:** Verify reporting functionality.
+* **Test Case Objective:** To ensure that clinicians can generate reports on patient data.
+* **Test Case Preconditions:** A clinician is logged in to the portal.
+* **Test Case Steps:**
+    * Generate a report on patient demographics.
+    * Generate a report on session attendance.
+    * Generate a report on patient progress.
+* **Test Case Expected Results:** The clinician can successfully generate various reports on patient data.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+**Session Application**
+
+* **Test Case ID:** DHM-TC-SA-01
+* **Test Case Name:** Verify user interface.
+* **Test Case Objective:** To ensure that the session application has a user-friendly interface that is easy to navigate.
+* **Test Case Preconditions:** The session application is accessible.
+* **Test Case Steps:**
+    * Navigate through the different screens of the application.
+    * Verify that the layout, design, and navigation are intuitive.
+* **Test Case Expected Results:** The user interface is user-friendly and easy to navigate.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-SA-02
+* **Test Case Name:** Verify session management.
+* **Test Case Objective:** To ensure that patients can successfully join and leave sessions.
+* **Test Case Preconditions:** A patient is logged in to the session application.
+* **Test Case Steps:**
+    * Join a scheduled session.
+    * Leave a session.
+* **Test Case Expected Results:** The patient can successfully join and leave sessions.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-SA-03
+* **Test Case Name:** Verify data capture.
+* **Test Case Objective:** To ensure that the session application captures the necessary data during sessions.
+* **Test Case Preconditions:** A patient is logged in to the session application.
+* **Test Case Steps:**
+    * Perform various activities during a session.
+    * Verify that the application captures the relevant data, such as session start and end times, patient responses, and session notes.
+* **Test Case Expected Results:** The session application captures the necessary data during sessions.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+**Non-Functional Testing:**
+
+**Performance Testing**
+
+* **Test Case ID:** DHM-TC-PF-01
+* **Test Case Name:** Verify system performance under load.
+* **Test Case Objective:** To ensure that the system can handle the expected workload and provide acceptable response times.
+* **Test Case Preconditions:** The system is set up and configured for load testing.
+* **Test Case Steps:**
+    * Simulate a realistic workload using a load testing tool.
+    * Measure the response times for various system operations.
+* **Test Case Expected Results:** The system meets the performance requirements defined in the SRS document.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+**Security Testing**
+
+* **Test Case ID:** DHM-TC-SE-01
+* **Test Case Name:** Verify user authentication and authorization.
+* **Test Case Objective:** To ensure that only authorized users can access the system and its data.
+* **Test Case Preconditions:** The system is set up and configured for security testing.
+* **Test Case Steps:**
+    * Attempt to access the system using invalid credentials.
+    * Attempt to access restricted areas of the system.
+* **Test Case Expected Results:** The system prevents unauthorized access and only allows authorized users to access the system and its data.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-SE-02
+* **Test Case Name:** Verify data encryption.
+* **Test Case Objective:** To ensure that sensitive data is encrypted both in transit and at rest.
+* **Test Case Preconditions:** The system is set up and configured for security testing.
+* **Test Case Steps:**
+    * Analyze the system's encryption mechanisms.
+    * Verify that sensitive data is encrypted using strong encryption algorithms.
+* **Test Case Expected Results:** The system encrypts sensitive data using strong encryption algorithms.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+**Usability Testing**
+
+* **Test Case ID:** DHM-TC-US-01
+* **Test Case Name:** Verify ease of navigation.
+* **Test Case Objective:** To ensure that the system is easy to navigate and use.
+* **Test Case Preconditions:** The system is set up and configured for usability testing.
+* **Test Case Steps:**
+    * Have users perform various tasks within the system.
+    * Observe their behavior and gather feedback on the ease of navigation.
+* **Test Case Expected Results:** Users find the system easy to navigate and use.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+* **Test Case ID:** DHM-TC-US-02
+* **Test Case Name:** Verify user interface clarity.
+* **Test Case Objective:** To ensure that the user interface is clear and easy to understand.
+* **Test Case Preconditions:** The system is set up and configured for usability testing.
+* **Test Case Steps:**
+    * Have users perform various tasks within the system.
+    * Observe their behavior and gather feedback on the clarity of the user interface.
+* **Test Case Expected Results:** Users find the user interface clear and easy to understand.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+**Regression Testing**
+
+* **Test Case ID:** DHM-TC-RG-01
+* **Test Case Name:** Verify existing functionality after code changes.
+* **Test Case Objective:** To ensure that code changes do not introduce new bugs or break existing functionality.
+* **Test Case Preconditions:** The system is set up and configured for regression testing.
+* **Test Case Steps:**
+    * Execute a set of test cases that cover the existing functionality.
+    * Verify that all test cases pass.
+* **Test Case Expected Results:** All test cases pass, indicating that the code changes did not introduce new bugs or break existing functionality.
+* **Test Case Actual Results:** [Record the actual results]
+* **Test Case Pass/Fail:** [Mark as Pass or Fail]
+* **Test Case Comments:** [Add any relevant comments]
+
+**Note:** This is a sample test plan and should be adapted based on the specific requirements of the Day Health Manager Version 1.1. You should add more specific test cases based on the details provided in the SRS document.

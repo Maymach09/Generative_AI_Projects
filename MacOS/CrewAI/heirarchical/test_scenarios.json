@@ -1,395 +1,164 @@
-```json
 {
   "scenarios": [
     {
-      "name": "Scenario 1.1: Create and Configure a New Rule",
-      "context": "This scenario tests the functionality of creating, activating, and deactivating a new rule.",
+      "scenario_name": "Successful User Registration",
+      "context": "This scenario tests the ability of a new user to register with the Day Health Manager system using valid information.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 1.1.1: Positive Scenario - Create and Activate a New Rule",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Click on \"Create New Rule\".",
-            "Enter valid data for all required fields (e.g., rule name, description, conditions, actions).",
-            "Save the rule.",
-            "Navigate to the rule list.",
-            "Select the newly created rule.",
-            "Click on \"Activate\"."
-          ],
-          "expected_result": "The rule is created successfully and displayed in the rule list. The rule status changes to \"Active\"."
-        },
-        {
-          "name": "Test Case 1.1.2: Negative Scenario - Create a Rule with Invalid Input",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Click on \"Create New Rule\".",
-            "Enter invalid data for one or more required fields (e.g., missing rule name, invalid condition).",
-            "Try to save the rule."
-          ],
-          "expected_result": "The system displays an error message indicating the invalid data and prevents the rule from being saved."
-        },
-        {
-          "name": "Test Case 1.1.3: Negative Scenario - Deactivate an Active Rule",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule list.",
-            "Select an active rule.",
-            "Click on \"Deactivate\"."
-          ],
-          "expected_result": "The rule status changes to \"Inactive\"."
-        },
-        {
-          "name": "Test Case 1.1.4: Negative Scenario - Attempt to Deactivate an Inactive Rule",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule list.",
-            "Select an inactive rule.",
-            "Click on \"Deactivate\"."
-          ],
-          "expected_result": "The system displays a message indicating that the rule is already inactive."
-        }
-      ]
+      "test_steps": [
+        "Navigate to the registration page.",
+        "Enter a valid email address, unique username, strong password, and confirm password.",
+        "Select a valid date of birth.",
+        "Agree to the terms and conditions.",
+        "Click the \"Register\" button."
+      ],
+      "expected_results": "The user should receive a confirmation email with a link to verify their account. The system should display a success message indicating successful registration.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 1.2: Edit an Existing Rule",
-      "context": "This scenario tests the functionality of editing an existing rule.",
+      "scenario_name": "Invalid Email Address During Registration",
+      "context": "This scenario tests the system's handling of invalid email addresses during the registration process.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 1.2.1: Positive Scenario - Edit a Rule with Valid Configuration",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Select an existing rule.",
-            "Modify the rule's configuration (e.g., change the description, add a new condition).",
-            "Save the changes."
-          ],
-          "expected_result": "The rule is updated successfully and the changes are reflected in the rule list."
-        },
-        {
-          "name": "Test Case 1.2.2: Negative Scenario - Edit a Rule with Invalid Configuration",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Select an existing rule.",
-            "Modify the rule's configuration with invalid data (e.g., enter an invalid condition).",
-            "Try to save the changes."
-          ],
-          "expected_result": "The system displays an error message indicating the invalid data and prevents the changes from being saved."
-        }
-      ]
+      "test_steps": [
+        "Navigate to the registration page.",
+        "Enter an invalid email address (e.g., missing \"@\" symbol, incorrect domain).",
+        "Enter valid username, password, and other required information.",
+        "Click the \"Register\" button."
+      ],
+      "expected_results": "The system should display an error message indicating an invalid email address and prevent the user from completing registration.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 1.3: Delete a Rule",
-      "context": "This scenario tests the functionality of deleting an existing rule.",
+      "scenario_name": "Successful User Login",
+      "context": "This scenario tests the ability of a registered user to log in to the system using valid credentials.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 1.3.1: Positive Scenario - Delete an Existing Rule",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Select an existing rule.",
-            "Click on \"Delete\".",
-            "Confirm the deletion."
-          ],
-          "expected_result": "The rule is deleted successfully and no longer appears in the rule list."
-        },
-        {
-          "name": "Test Case 1.3.2: Negative Scenario - Attempt to Delete a Rule that is Currently Being Used",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Select a rule that is currently being used (e.g., a rule that is actively monitoring a system).",
-            "Click on \"Delete\"."
-          ],
-          "expected_result": "The system displays an error message indicating that the rule cannot be deleted because it is currently in use."
-        }
-      ]
+      "test_steps": [
+        "Navigate to the login page.",
+        "Enter a valid username and password.",
+        "Click the \"Login\" button."
+      ],
+      "expected_results": "The user should be successfully logged in to the system and redirected to their dashboard or home page.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 1.6: Rule Dependencies",
-      "context": "This scenario tests the system's ability to handle rule dependencies.",
+      "scenario_name": "Invalid Password During Login",
+      "context": "This scenario tests the system's handling of invalid passwords during the login process.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 1.6.1: Positive Scenario - Modify a Rule and Update Dependent Rules",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Create a rule (Rule A) with specific criteria (e.g., transaction amount exceeding $5,000).",
-            "Create a dependent rule (Rule B) with criteria that depends on Rule A (e.g., if Rule A is triggered, then block transaction).",
-            "Modify Rule A's criteria (e.g., change the transaction amount to $7,500).",
-            "Verify that Rule B's criteria are automatically updated to reflect the change in Rule A (e.g., if Rule A is triggered with a transaction amount exceeding $7,500, then block transaction)."
-          ],
-          "expected_result": "Rule B's criteria are updated to reflect the change in Rule A."
-        }
-      ]
+      "test_steps": [
+        "Navigate to the login page.",
+        "Enter a valid username and an incorrect password.",
+        "Click the \"Login\" button."
+      ],
+      "expected_results": "The system should display an error message indicating an incorrect password and prevent the user from logging in.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 2.1: View Rule Logs",
-      "context": "This scenario tests the functionality of viewing logs for a specific rule.",
+      "scenario_name": "Successful Password Recovery",
+      "context": "This scenario tests the functionality of the password recovery feature for users who have forgotten their password.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 2.1.1: Positive Scenario - View Logs for a Specific Rule",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Select a specific rule.",
-            "Click on \"View Logs\"."
-          ],
-          "expected_result": "The system displays a list of logs related to the selected rule, including timestamps, events, and actions taken."
-        },
-        {
-          "name": "Test Case 2.1.2: Negative Scenario - Attempt to View Logs for a Non-Existent Rule",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Select a non-existent rule ID.",
-            "Click on \"View Logs\"."
-          ],
-          "expected_result": "The system displays an error message indicating that the rule does not exist."
-        }
-      ]
+      "test_steps": [
+        "Navigate to the login page.",
+        "Click the \"Forgot Password\" link.",
+        "Enter a valid registered email address.",
+        "Click the \"Submit\" button."
+      ],
+      "expected_results": "The system should send an email to the provided address with a link to reset the password.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 2.2: Search Rule Logs",
-      "context": "This scenario tests the functionality of searching rule logs by keyword.",
+      "scenario_name": "Adding Valid Patient Data",
+      "context": "This scenario tests the ability of a healthcare professional to enter valid patient data into the system.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 2.2.1: Positive Scenario - Search Rule Logs by Keyword",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Click on \"View Logs\".",
-            "Enter a keyword in the search bar (e.g., \"error\", \"warning\").",
-            "Click on \"Search\"."
-          ],
-          "expected_result": "The system displays only the logs that contain the specified keyword."
-        },
-        {
-          "name": "Test Case 2.2.2: Negative Scenario - Search Rule Logs with an Invalid Keyword",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Click on \"View Logs\".",
-            "Enter an invalid keyword (e.g., a random string of characters).",
-            "Click on \"Search\"."
-          ],
-          "expected_result": "The system displays a message indicating that no logs were found matching the search criteria."
-        }
-      ]
+      "test_steps": [
+        "Log in as a healthcare professional.",
+        "Navigate to the patient data entry section.",
+        "Enter valid patient information (name, date of birth, medical history, etc.).",
+        "Submit the data."
+      ],
+      "expected_results": "The system should successfully save the entered patient data and display a confirmation message.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 2.3: Filter Rule Logs",
-      "context": "This scenario tests the functionality of filtering rule logs by date range and event type.",
+      "scenario_name": "Entering Invalid Patient Data",
+      "context": "This scenario tests the system's handling of invalid data entries for patient information.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 2.3.1: Positive Scenario - Filter Rule Logs by Date Range",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Click on \"View Logs\".",
-            "Select a date range in the filter options.",
-            "Click on \"Filter\"."
-          ],
-          "expected_result": "The system displays only the logs that fall within the specified date range."
-        },
-        {
-          "name": "Test Case 2.3.2: Positive Scenario - Filter Rule Logs by Event Type",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Click on \"View Logs\".",
-            "Select an event type in the filter options (e.g., \"Error\", \"Warning\").",
-            "Click on \"Filter\"."
-          ],
-          "expected_result": "The system displays only the logs that match the selected event type."
-        },
-        {
-          "name": "Test Case 2.3.3: Negative Scenario - Attempt to Filter Rule Logs with an Invalid Date Range",
-          "steps": [
-            "Log in to the system as an administrator.",
-            "Navigate to the rule management section.",
-            "Click on \"View Logs\".",
-            "Enter an invalid date range (e.g., start date is after the end date).",
-            "Click on \"Filter\"."
-          ],
-          "expected_result": "The system displays an error message indicating the invalid date range."
-        }
-      ]
+      "test_steps": [
+        "Log in as a healthcare professional.",
+        "Navigate to the patient data entry section.",
+        "Enter invalid patient information (e.g., incorrect date format, non-numeric values for age).",
+        "Submit the data."
+      ],
+      "expected_results": "The system should display error messages indicating invalid data and prevent the user from saving the data.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 2.1: Detect Suspicious Transactions",
-      "context": "This scenario tests the system's ability to detect suspicious transactions based on various criteria.",
+      "scenario_name": "Retrieving Patient Data",
+      "context": "This scenario tests the ability of a healthcare professional to retrieve previously entered patient data.",
       "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 2.1.1: Positive Scenario - Detect Transaction with Unusual Patterns",
-          "steps": [
-            "Perform a transaction with unusual patterns (e.g., multiple transactions in a short period from different locations)."
-          ],
-          "expected_result": "The system flags the transaction as suspicious."
-        },
-        {
-          "name": "Test Case 2.1.2: Positive Scenario - Detect High-Value Transaction",
-          "steps": [
-            "Perform a high-value transaction (e.g., $50,000)."
-          ],
-          "expected_result": "The system flags the transaction as suspicious."
-        },
-        {
-          "name": "Test Case 2.1.3: Positive Scenario - Detect Transaction from High-Risk Location",
-          "steps": [
-            "Perform a transaction from a high-risk location (e.g., a country known for fraud)."
-          ],
-          "expected_result": "The system flags the transaction as suspicious."
-        }
-      ]
+      "test_steps": [
+        "Log in as a healthcare professional.",
+        "Navigate to the patient data retrieval section.",
+        "Search for a specific patient using valid criteria (e.g., patient name, ID).",
+        "View the retrieved patient data."
+      ],
+      "expected_results": "The system should display the relevant patient data based on the search criteria.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 2.3: False Positive Detection",
-      "context": "This scenario tests the system's ability to handle false positive fraud detection and provide a mechanism for overriding the rule.",
-      "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 2.3.1: Positive Scenario - Override False Positive Fraud Detection",
-          "steps": [
-            "Perform a legitimate transaction that triggers a fraud detection rule (e.g., a transaction with a high amount from a new customer).",
-            "Verify that the system flags the transaction as fraudulent.",
-            "Review the fraud detection details and verify that the system provides clear instructions on how to override the rule (e.g., a button to manually approve the transaction).",
-            "Override the fraud detection rule and verify that the transaction is processed successfully."
-          ],
-          "expected_result": "The transaction is processed successfully after overriding the fraud detection rule."
-        }
-      ]
+      "scenario_name": "High User Load Test",
+      "context": "This scenario tests the system's performance under high user load to ensure it can handle a large number of concurrent users accessing the system.",
+      "test_type": "Performance",
+      "test_steps": [
+        "Simulate a large number of users (e.g., 100, 500, 1000) accessing the system simultaneously.",
+        "Monitor system response times, resource utilization (CPU, memory, network), and error rates."
+      ],
+      "expected_results": "The system should maintain acceptable response times, resource utilization should remain within acceptable limits, and error rates should be minimal.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 3.3: Claim Adjustment with Multiple Rules",
-      "context": "This scenario tests the system's ability to handle claim adjustments involving multiple rules and prioritize them correctly.",
-      "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 3.3.1: Positive Scenario - Apply Multiple Rules to a Claim",
-          "steps": [
-            "Submit a claim that triggers multiple rules (e.g., a claim for a medical expense exceeding $5,000 and a claim filed within 30 days of the incident).",
-            "Verify that the system correctly prioritizes and applies the rules in the appropriate order (e.g., the rule with the highest priority is applied first).",
-            "Verify that the claim is adjusted according to the applied rules."
-          ],
-          "expected_result": "The claim is adjusted according to the prioritized rules."
-        }
-      ]
-    },
-    {
-      "name": "Scenario 4.3: Handle Data Transfer Errors",
-      "context": "This scenario tests the system's ability to handle different types of data transfer errors.",
-      "test_type": "Integration",
-      "test_cases": [
-        {
-          "name": "Test Case 4.3.1: Positive Scenario - Handle Data Validation Error",
-          "steps": [
-            "Simulate a data validation error during data transfer (e.g., an invalid date format)."
-          ],
-          "expected_result": "The system handles the error and provides an appropriate error message."
-        },
-        {
-          "name": "Test Case 4.3.2: Positive Scenario - Handle Network Error",
-          "steps": [
-            "Simulate a network error during data transfer (e.g., a network connection timeout)."
-          ],
-          "expected_result": "The system handles the error and attempts to retry the data transfer."
-        },
-        {
-          "name": "Test Case 4.3.3: Positive Scenario - Handle System Error",
-          "steps": [
-            "Simulate a system error during data transfer (e.g., a database error)."
-          ],
-          "expected_result": "The system handles the error and logs the error for troubleshooting."
-        }
-      ]
-    },
-    {
-      "name": "Scenario 5.3: Audit User Activities",
-      "context": "This scenario tests the system's ability to generate reports on user activity.",
-      "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 5.3.1: Positive Scenario - Generate User Activity Report",
-          "steps": [
-            "Perform various user activities (e.g., login, create a rule, modify a rule, access data).",
-            "Generate a report on user activity.",
-            "Verify that the report includes the number of logins, rule modifications, and data access events."
-          ],
-          "expected_result": "The user activity report includes the expected information."
-        }
-      ]
-    },
-    {
-      "name": "Scenario 6.1: Configure System Settings",
-      "context": "This scenario tests the system's ability to configure email notifications for different events.",
-      "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 6.1.1: Positive Scenario - Configure Email Notifications",
-          "steps": [
-            "Configure email notifications for different events (e.g., rule changes, fraud alerts, system errors).",
-            "Perform actions that trigger the configured events (e.g., change a rule, detect a fraudulent transaction, encounter a system error).",
-            "Verify that the system sends email notifications to the designated recipients."
-          ],
-          "expected_result": "Email notifications are sent to the designated recipients for the triggered events."
-        }
-      ]
-    },
-    {
-      "name": "Scenario 7.3: Detect and Respond to Security Threats",
-      "context": "This scenario tests the system's ability to detect and respond to common security threats.",
+      "scenario_name": "SQL Injection Vulnerability Test",
+      "context": "This scenario tests the system's vulnerability to SQL injection attacks by attempting to inject malicious SQL code into input fields.",
       "test_type": "Security",
-      "test_cases": [
-        {
-          "name": "Test Case 7.3.1: Positive Scenario - Detect and Block SQL Injection Attack",
-          "steps": [
-            "Perform a SQL injection attack."
-          ],
-          "expected_result": "The system detects the attack and blocks it."
-        },
-        {
-          "name": "Test Case 7.3.2: Positive Scenario - Detect and Prevent Cross-Site Scripting Attack",
-          "steps": [
-            "Perform a cross-site scripting attack."
-          ],
-          "expected_result": "The system detects the attack and prevents it from executing."
-        },
-        {
-          "name": "Test Case 7.3.3: Positive Scenario - Detect and Lock Account After Brute-Force Attack",
-          "steps": [
-            "Perform a brute-force attack."
-          ],
-          "expected_result": "The system detects the attack and locks the account after multiple failed login attempts."
-        }
-      ]
+      "test_steps": [
+        "Identify potential input fields vulnerable to SQL injection (e.g., search fields, login fields).",
+        "Attempt to inject malicious SQL code into these fields.",
+        "Monitor system response and database logs for any signs of unauthorized access or data manipulation."
+      ],
+      "expected_results": "The system should successfully prevent and detect SQL injection attempts, preventing unauthorized access and data manipulation.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     },
     {
-      "name": "Scenario 8.1: Rule Conflicts",
-      "context": "This scenario tests the system's ability to handle rule conflicts where rules have conflicting actions.",
-      "test_type": "Functional",
-      "test_cases": [
-        {
-          "name": "Test Case 8.1.1: Positive Scenario - Handle Rule Conflicts",
-          "steps": [
-            "Create two rules with conflicting actions (e.g., one rule blocks a transaction, and another rule allows it).",
-            "Perform a transaction that triggers both rules.",
-            "Verify that the system handles the conflict and applies the rule with the highest priority."
-          ],
-          "expected_result": "The system handles the conflict and applies the rule with the highest priority."
-        }
-      ]
+      "scenario_name": "User Interface Navigation Test",
+      "context": "This scenario tests the ease of navigation and user-friendliness of the system's user interface.",
+      "test_type": "Usability",
+      "test_steps": [
+        "Have a representative sample of users navigate through the system's different sections and features.",
+        "Observe user actions, identify any difficulties or confusion, and collect user feedback."
+      ],
+      "expected_results": "Users should be able to easily navigate through the system, locate desired features, and complete tasks without significant difficulty or frustration.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
+    },
+    {
+      "scenario_name": "Screen Reader Compatibility Test",
+      "context": "This scenario tests the system's accessibility for users with visual impairments using screen readers.",
+      "test_type": "Accessibility",
+      "test_steps": [
+        "Use a screen reader (e.g., JAWS, NVDA) to navigate through the system's user interface.",
+        "Verify that all elements (buttons, menus, text fields, etc.) are properly labeled and accessible to screen readers."
+      ],
+      "expected_results": "The system should be fully compatible with screen readers, allowing users with visual impairments to access and interact with all features.",
+      "actual_results": "[To be filled in after the test is executed]",
+      "pass_fail": "[To be filled in after the test is executed]"
     }
   ]
 }
-```
