@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from langchain.vectorstores.chroma import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
@@ -12,12 +12,13 @@ load_dotenv()
 
 # Set OpenAI API Key
 openai_api_key = os.environ.get('OPENAI_API_KEY')
+print(openai_api_key)
 
 CHROMA_PATH = "chroma"
-tc_format_path = "tc_json_format"
+tc_format_path = "/Users/maymach09/Documents/GenAI09/MacOS/RAG_TestCases/tc_json_format"
 prompt = "prompt.txt"
 
-# Load the JSON format from the separate file
+# Load the JSON format from a separate file
 with open(tc_format_path, "r") as json_file:
     tc_json_format = json.load(json_file)
 

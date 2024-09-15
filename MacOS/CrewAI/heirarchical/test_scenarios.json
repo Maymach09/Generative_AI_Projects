@@ -1,164 +1,383 @@
+```json
 {
   "scenarios": [
     {
-      "scenario_name": "Successful User Registration",
-      "context": "This scenario tests the ability of a new user to register with the Day Health Manager system using valid information.",
+      "name": "Valid Registration (Positive Scenario)",
+      "context": "A new user attempts to register for the system with valid data.",
       "test_type": "Functional",
-      "test_steps": [
+      "steps": [
         "Navigate to the registration page.",
-        "Enter a valid email address, unique username, strong password, and confirm password.",
-        "Select a valid date of birth.",
-        "Agree to the terms and conditions.",
+        "Enter valid user information in all required fields.",
         "Click the \"Register\" button."
       ],
-      "expected_results": "The user should receive a confirmation email with a link to verify their account. The system should display a success message indicating successful registration.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The user account is successfully created, and the user is redirected to the login page or a confirmation page."
     },
     {
-      "scenario_name": "Invalid Email Address During Registration",
-      "context": "This scenario tests the system's handling of invalid email addresses during the registration process.",
+      "name": "Invalid Registration Data (Negative Scenario)",
+      "context": "A new user attempts to register with invalid data.",
       "test_type": "Functional",
-      "test_steps": [
+      "steps": [
         "Navigate to the registration page.",
-        "Enter an invalid email address (e.g., missing \"@\" symbol, incorrect domain).",
-        "Enter valid username, password, and other required information.",
+        "Enter invalid data in one or more required fields (e.g., missing email, invalid email format, duplicate email).",
         "Click the \"Register\" button."
       ],
-      "expected_results": "The system should display an error message indicating an invalid email address and prevent the user from completing registration.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The system displays an error message indicating the invalid data and prevents account creation."
     },
     {
-      "scenario_name": "Successful User Login",
-      "context": "This scenario tests the ability of a registered user to log in to the system using valid credentials.",
+      "name": "Valid Login (Positive Scenario)",
+      "context": "An existing user attempts to log in with valid credentials.",
       "test_type": "Functional",
-      "test_steps": [
+      "steps": [
         "Navigate to the login page.",
         "Enter a valid username and password.",
         "Click the \"Login\" button."
       ],
-      "expected_results": "The user should be successfully logged in to the system and redirected to their dashboard or home page.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The user is successfully logged in and redirected to the home page or the designated landing page."
     },
     {
-      "scenario_name": "Invalid Password During Login",
-      "context": "This scenario tests the system's handling of invalid passwords during the login process.",
+      "name": "Invalid Login Credentials (Negative Scenario)",
+      "context": "An existing user attempts to log in with invalid credentials.",
       "test_type": "Functional",
-      "test_steps": [
+      "steps": [
         "Navigate to the login page.",
-        "Enter a valid username and an incorrect password.",
+        "Enter an invalid username or password.",
         "Click the \"Login\" button."
       ],
-      "expected_results": "The system should display an error message indicating an incorrect password and prevent the user from logging in.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The system displays an error message indicating invalid credentials."
     },
     {
-      "scenario_name": "Successful Password Recovery",
-      "context": "This scenario tests the functionality of the password recovery feature for users who have forgotten their password.",
+      "name": "Account Lockout (Negative Scenario)",
+      "context": "An existing user attempts to log in multiple times with incorrect credentials.",
       "test_type": "Functional",
-      "test_steps": [
+      "steps": [
+        "Navigate to the login page.",
+        "Enter incorrect credentials for multiple consecutive attempts (e.g., 5 times)."
+      ],
+      "expected_outcome": "The user account is locked out after exceeding the allowed number of failed attempts. The system displays an appropriate message indicating the account is locked and provides instructions for password recovery."
+    },
+    {
+      "name": "Password Recovery (Positive Scenario)",
+      "context": "An existing user has forgotten their password and attempts to recover it.",
+      "test_type": "Functional",
+      "steps": [
         "Navigate to the login page.",
         "Click the \"Forgot Password\" link.",
-        "Enter a valid registered email address.",
-        "Click the \"Submit\" button."
+        "Enter the registered email address.",
+        "Follow the instructions to reset the password (e.g., receive a reset link via email)."
       ],
-      "expected_results": "The system should send an email to the provided address with a link to reset the password.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The user receives an email with a password reset link. They can then use the link to create a new password."
     },
     {
-      "scenario_name": "Adding Valid Patient Data",
-      "context": "This scenario tests the ability of a healthcare professional to enter valid patient data into the system.",
+      "name": "Accessing Authorized Features (Positive Scenario)",
+      "context": "A user with specific permissions attempts to access a feature they are authorized to use.",
       "test_type": "Functional",
-      "test_steps": [
-        "Log in as a healthcare professional.",
-        "Navigate to the patient data entry section.",
-        "Enter valid patient information (name, date of birth, medical history, etc.).",
+      "steps": [
+        "Log in as a user with specific permissions (e.g., administrator, doctor, patient).",
+        "Navigate to the feature requiring those permissions."
+      ],
+      "expected_outcome": "The user can access the feature without any restrictions."
+    },
+    {
+      "name": "Accessing Unauthorized Features (Negative Scenario)",
+      "context": "A user without specific permissions attempts to access a feature they are not authorized to use.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user without specific permissions (e.g., a patient attempting to access doctor-specific features).",
+        "Navigate to the feature requiring those permissions."
+      ],
+      "expected_outcome": "The system prevents access to the feature and displays an error message indicating insufficient permissions."
+    },
+    {
+      "name": "Valid Data Entry (Positive Scenario)",
+      "context": "A user enters valid health data into the system.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Navigate to the data entry section.",
+        "Enter valid health data in different data types (e.g., text, numbers, dates) and units of measurement.",
         "Submit the data."
       ],
-      "expected_results": "The system should successfully save the entered patient data and display a confirmation message.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The data is successfully saved in the system."
     },
     {
-      "scenario_name": "Entering Invalid Patient Data",
-      "context": "This scenario tests the system's handling of invalid data entries for patient information.",
+      "name": "Invalid Data Entry (Negative Scenario)",
+      "context": "A user enters invalid data into the system.",
       "test_type": "Functional",
-      "test_steps": [
-        "Log in as a healthcare professional.",
-        "Navigate to the patient data entry section.",
-        "Enter invalid patient information (e.g., incorrect date format, non-numeric values for age).",
+      "steps": [
+        "Log in as a user.",
+        "Navigate to the data entry section.",
+        "Enter invalid data in one or more fields (e.g., data outside acceptable ranges, incorrect formats, data type mismatches).",
         "Submit the data."
       ],
-      "expected_results": "The system should display error messages indicating invalid data and prevent the user from saving the data.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The system displays an error message indicating invalid data and prevents data submission."
     },
     {
-      "scenario_name": "Retrieving Patient Data",
-      "context": "This scenario tests the ability of a healthcare professional to retrieve previously entered patient data.",
+      "name": "Editing Own Data (Positive Scenario)",
+      "context": "A user with appropriate permissions edits their own health data.",
       "test_type": "Functional",
-      "test_steps": [
-        "Log in as a healthcare professional.",
-        "Navigate to the patient data retrieval section.",
-        "Search for a specific patient using valid criteria (e.g., patient name, ID).",
-        "View the retrieved patient data."
+      "steps": [
+        "Log in as a user.",
+        "Navigate to the data entry section.",
+        "Select the data to edit.",
+        "Modify the data and save the changes."
       ],
-      "expected_results": "The system should display the relevant patient data based on the search criteria.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The data is successfully updated in the system."
     },
     {
-      "scenario_name": "High User Load Test",
-      "context": "This scenario tests the system's performance under high user load to ensure it can handle a large number of concurrent users accessing the system.",
-      "test_type": "Performance",
-      "test_steps": [
-        "Simulate a large number of users (e.g., 100, 500, 1000) accessing the system simultaneously.",
-        "Monitor system response times, resource utilization (CPU, memory, network), and error rates."
+      "name": "Editing Other User's Data (Negative Scenario)",
+      "context": "A user without appropriate permissions attempts to edit another user's health data.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user without the necessary permissions (e.g., a patient attempting to edit a doctor's data).",
+        "Navigate to the data entry section.",
+        "Attempt to edit another user's data."
       ],
-      "expected_results": "The system should maintain acceptable response times, resource utilization should remain within acceptable limits, and error rates should be minimal.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The system prevents access to the data and displays an error message indicating insufficient permissions."
     },
     {
-      "scenario_name": "SQL Injection Vulnerability Test",
-      "context": "This scenario tests the system's vulnerability to SQL injection attacks by attempting to inject malicious SQL code into input fields.",
+      "name": "Deleting Own Data (Positive Scenario)",
+      "context": "A user with appropriate permissions deletes their own health data.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Navigate to the data entry section.",
+        "Select the data to delete.",
+        "Confirm the deletion."
+      ],
+      "expected_outcome": "The data is successfully deleted from the system."
+    },
+    {
+      "name": "Deleting Other User's Data (Negative Scenario)",
+      "context": "A user without appropriate permissions attempts to delete another user's health data.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user without the necessary permissions (e.g., a patient attempting to delete a doctor's data).",
+        "Navigate to the data entry section.",
+        "Attempt to delete another user's data."
+      ],
+      "expected_outcome": "The system prevents access to the data and displays an error message indicating insufficient permissions."
+    },
+    {
+      "name": "Deleting Data Associated with Other Records (Negative Scenario)",
+      "context": "A user attempts to delete data associated with other records (e.g., deleting a blood pressure reading that is linked to an appointment).",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user with appropriate permissions.",
+        "Navigate to the data entry section.",
+        "Attempt to delete data linked to other records."
+      ],
+      "expected_outcome": "The system prevents deletion of the data and displays an error message indicating that the data cannot be deleted due to its association with other records."
+    },
+    {
+      "name": "Generating Reports with Filtering Options (Positive Scenario)",
+      "context": "A user generates a report of their health data with specific filtering options.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Navigate to the report generation section.",
+        "Select the desired report type (e.g., blood pressure readings, weight history).",
+        "Apply filtering options (e.g., date range, specific health parameters).",
+        "Generate the report."
+      ],
+      "expected_outcome": "The system generates the report with the specified filtering options and displays the results."
+    },
+    {
+      "name": "Exporting Reports to Different Formats (Positive Scenario)",
+      "context": "A user exports a report to different file formats.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Generate a report (refer to scenario 3.1).",
+        "Select the desired export format (e.g., PDF, CSV, Excel).",
+        "Export the report."
+      ],
+      "expected_outcome": "The system successfully exports the report to the selected file format."
+    },
+    {
+      "name": "Exporting Reports with Different Data Aggregation Levels (Positive Scenario)",
+      "context": "A user exports a report with different data aggregation levels.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Generate a report (refer to scenario 3.1).",
+        "Select different data aggregation levels (e.g., daily, weekly, monthly averages).",
+        "Export the report."
+      ],
+      "expected_outcome": "The system successfully exports the report with the selected data aggregation level."
+    },
+    {
+      "name": "Viewing Reports with Different Visualization Options (Positive Scenario)",
+      "context": "A user views a report with different visualization options.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Generate a report (refer to scenario 3.1).",
+        "Select different chart types (e.g., line chart, bar chart, pie chart).",
+        "Customize chart settings (e.g., axis labels, colors)."
+      ],
+      "expected_outcome": "The system displays the report with the selected visualization options and allows for customization."
+    },
+    {
+      "name": "Integrating with External Devices (Positive Scenario)",
+      "context": "The system integrates with external health devices (e.g., wearable fitness trackers) and synchronizes data.",
+      "test_type": "Integration",
+      "steps": [
+        "Connect an external health device to the system (e.g., using Bluetooth or a USB connection).",
+        "Allow the system to access data from the device.",
+        "Monitor data synchronization between the device and the system."
+      ],
+      "expected_outcome": "The system successfully integrates with the external device, retrieves data in the correct format, and synchronizes the data with the user's health records."
+    },
+    {
+      "name": "Data Synchronization Errors (Negative Scenario)",
+      "context": "The system encounters errors during data synchronization with external devices.",
+      "test_type": "Integration",
+      "steps": [
+        "Connect an external health device to the system (e.g., using Bluetooth or a USB connection).",
+        "Simulate network connectivity issues or data format errors during synchronization."
+      ],
+      "expected_outcome": "The system handles errors gracefully, displays appropriate error messages, and attempts to re-establish synchronization."
+    },
+    {
+      "name": "Sending Notifications (Positive Scenario)",
+      "context": "The system sends notifications to the user based on their health data.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Configure notification settings (e.g., notification types, frequencies, triggers).",
+        "Simulate health data events that trigger notifications (e.g., exceeding blood pressure thresholds, detecting patterns in sleep data)."
+      ],
+      "expected_outcome": "The system sends notifications to the user through the configured channels (e.g., email, SMS, in-app) with the correct content and frequency."
+    },
+    {
+      "name": "Notification Errors (Negative Scenario)",
+      "context": "The system encounters errors while sending notifications.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as a user.",
+        "Configure notification settings (e.g., notification types, frequencies, triggers).",
+        "Simulate network connectivity issues or invalid notification settings."
+      ],
+      "expected_outcome": "The system handles notification errors gracefully, displays appropriate error messages, and attempts to resend notifications when possible."
+    },
+    {
+      "name": "Unauthorized Access Attempts (Negative Scenario)",
+      "context": "The system protects user data from unauthorized access attempts.",
       "test_type": "Security",
-      "test_steps": [
-        "Identify potential input fields vulnerable to SQL injection (e.g., search fields, login fields).",
-        "Attempt to inject malicious SQL code into these fields.",
-        "Monitor system response and database logs for any signs of unauthorized access or data manipulation."
+      "steps": [
+        "Simulate different types of unauthorized access attempts (e.g., brute-force attacks, social engineering)."
       ],
-      "expected_results": "The system should successfully prevent and detect SQL injection attempts, preventing unauthorized access and data manipulation.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "The system detects and blocks unauthorized access attempts, logs the events, and alerts administrators."
     },
     {
-      "scenario_name": "User Interface Navigation Test",
-      "context": "This scenario tests the ease of navigation and user-friendliness of the system's user interface.",
+      "name": "Data Encryption (Positive Scenario)",
+      "context": "The system encrypts user data at rest and in transit.",
+      "test_type": "Security",
+      "steps": [
+        "Verify that the system uses appropriate encryption algorithms (e.g., AES-256) for data at rest and in transit.",
+        "Review the key management practices used by the system (e.g., key generation, storage, rotation)."
+      ],
+      "expected_outcome": "The system encrypts user data using strong encryption algorithms and implements secure key management practices."
+    },
+    {
+      "name": "Privacy Compliance (Positive Scenario)",
+      "context": "The system complies with relevant privacy regulations (e.g., HIPAA).",
+      "test_type": "Security",
+      "steps": [
+        "Review the system's implementation of security controls to ensure compliance with relevant privacy regulations (e.g., access control, data retention policies, data breach notification procedures)."
+      ],
+      "expected_outcome": "The system implements appropriate security controls and complies with all relevant privacy regulations."
+    },
+    {
+      "name": "Handling Concurrent Users (Performance Test)",
+      "context": "The system handles a large number of users concurrently.",
+      "test_type": "Performance",
+      "steps": [
+        "Simulate a high number of concurrent users accessing the system (e.g., 100, 500, 1000 users).",
+        "Monitor performance metrics (e.g., response times, resource utilization)."
+      ],
+      "expected_outcome": "The system maintains acceptable performance levels (e.g., response times within acceptable thresholds, resource utilization within capacity) under high load conditions."
+    },
+    {
+      "name": "Scaling to Accommodate Increasing Data Volumes (Performance Test)",
+      "context": "The system scales to accommodate increasing data volumes.",
+      "test_type": "Performance",
+      "steps": [
+        "Simulate increasing data volumes (e.g., 10GB, 50GB, 100GB).",
+        "Monitor performance metrics (e.g., database response times, storage capacity)."
+      ],
+      "expected_outcome": "The system scales effectively to handle increasing data volumes without significant performance degradation."
+    },
+    {
+      "name": "User Interface Usability (Usability Test)",
+      "context": "The system provides a user-friendly interface.",
       "test_type": "Usability",
-      "test_steps": [
-        "Have a representative sample of users navigate through the system's different sections and features.",
-        "Observe user actions, identify any difficulties or confusion, and collect user feedback."
+      "steps": [
+        "Conduct usability testing with real users to gather feedback on the interface design and navigation."
       ],
-      "expected_results": "Users should be able to easily navigate through the system, locate desired features, and complete tasks without significant difficulty or frustration.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "Users find the interface intuitive, easy to navigate, and understand the functionality of the system."
     },
     {
-      "scenario_name": "Screen Reader Compatibility Test",
-      "context": "This scenario tests the system's accessibility for users with visual impairments using screen readers.",
-      "test_type": "Accessibility",
-      "test_steps": [
-        "Use a screen reader (e.g., JAWS, NVDA) to navigate through the system's user interface.",
-        "Verify that all elements (buttons, menus, text fields, etc.) are properly labeled and accessible to screen readers."
+      "name": "Clear and Concise Instructions (Usability Test)",
+      "context": "The system provides clear and concise instructions.",
+      "test_type": "Usability",
+      "steps": [
+        "Review the system's help documentation and in-app instructions to ensure they are clear, concise, and easy to understand."
       ],
-      "expected_results": "The system should be fully compatible with screen readers, allowing users with visual impairments to access and interact with all features.",
-      "actual_results": "[To be filled in after the test is executed]",
-      "pass_fail": "[To be filled in after the test is executed]"
+      "expected_outcome": "Users can easily find and understand the instructions provided within the system."
+    },
+    {
+      "name": "Accessibility Features (Accessibility Test)",
+      "context": "The system provides accessibility features for users with disabilities.",
+      "test_type": "Accessibility",
+      "steps": [
+        "Conduct accessibility testing using assistive technologies (e.g., screen readers, keyboard navigation) to ensure the system meets accessibility standards."
+      ],
+      "expected_outcome": "The system is accessible to users with disabilities, providing features such as keyboard navigation, screen reader compatibility, and alternative input methods."
+    },
+    {
+      "name": "Accessing the System from Different Devices (Positive Scenario)",
+      "context": "A user attempts to access the system from a different device (e.g., a mobile phone, tablet).",
+      "test_type": "Functional",
+      "steps": [
+        "Access the system from a mobile phone or tablet.",
+        "Log in using valid credentials.",
+        "Navigate through the system's features and functionalities."
+      ],
+      "expected_outcome": "The system is accessible and functional on different devices, providing a consistent user experience."
+    },
+    {
+      "name": "Handling Different Time Zones and Date Formats (Positive Scenario)",
+      "context": "The system handles different time zones and date formats.",
+      "test_type": "Functional",
+      "steps": [
+        "Log in as users from different time zones.",
+        "Schedule appointments, view data, and generate reports.",
+        "Verify that the system correctly displays dates and times according to the user's time zone."
+      ],
+      "expected_outcome": "The system accurately displays dates and times according to the user's time zone, ensuring consistency across different locations."
+    },
+    {
+      "name": "Data Backup and Recovery Functionality (Positive Scenario)",
+      "context": "The system provides data backup and recovery functionality.",
+      "test_type": "Functional",
+      "steps": [
+        "Simulate a data loss scenario (e.g., system failure, accidental deletion).",
+        "Initiate data recovery procedures.",
+        "Verify that the system can successfully restore data from backups."
+      ],
+      "expected_outcome": "The system can successfully restore data from backups, ensuring data integrity and preventing data loss."
+    },
+    {
+      "name": "System Updates and Upgrades (Positive Scenario)",
+      "context": "The system handles system updates and upgrades gracefully.",
+      "test_type": "Functional",
+      "steps": [
+        "Initiate system updates or upgrades.",
+        "Monitor the update process and verify that the system remains functional."
+      ],
+      "expected_outcome": "The system updates and upgrades smoothly without disrupting user access or functionality."
     }
   ]
 }
+```
