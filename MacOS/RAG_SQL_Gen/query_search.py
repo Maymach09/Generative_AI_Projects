@@ -15,61 +15,76 @@ openai_api_key = os.environ.get('OPENAI_API_KEY')
 print(openai_api_key)
 
 CHROMA_PATH = "/Users/maymach09/Documents/GenAI09/MacOS/RAG_SQL_Gen/chromaDB"
-tc_format_path = "/Users/maymach09/Documents/GenAI09/MacOS/RAG_SQL_Gen/data"
-prompt = "prompt.txt"
-
-# Load the JSON format from a separate file
-with open(tc_format_path, "r") as json_file:
-    tc_json_format = json.load(json_file)
-
-# Convert the JSON format to a string
-tc_format_str = json.dumps(tc_json_format, indent=4)
 
 
 PROMPT_TEMPLATE = """
 
----------------------------------------------------------------------
-User Prompt for Generating Test Cases:
----------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+User Prompt for Generating SQL:
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-You are an intelligent assistant tasked with generating comprehensive test cases for software based on specific requirements detailed in the provided document content.\
-The user will specify a topic or a particular aspect of the software for which they need test cases. \
-Use the information from the document and the topic provided by the user to generate relevant and thorough test cases.
+You are a database expert who's job is to generate accurate and optimized SQL queries based on the database schema and natural language request provided below. 
 
-Document Content:
+Database Schema:
 {context}
 
-User Input:
+User Query:
 {scenario}
 
-Instructions for Test Case Generation:
-	1	Identify Key Requirements:
-	2	Extract key functional and non-functional requirements from the provided document relevant to the specified topic.
-	3	Understand the User's Topic:
-	4	Focus on the specific aspect or feature mentioned by the user. Ensure your test cases cover all possible scenarios related to this aspect.
-	5	Generate Test Cases:
-	6	Create detailed test cases including:
-	    •	Test Case ID: Unique identifier for each test case.
-        •	Title: A concise title summarizing the test case.
-        •	Description: Detailed description of what the test case is verifying.
-        •	Preconditions: Any setup or prerequisites needed before executing the test.
-        •	Test Steps: Step-by-step instructions to execute the test.
-        •	Expected Results: The expected outcome of each step or the entire test case.
-        •	Postconditions: Any cleanup or state reset needed after test execution.
-	7	Consider Edge Cases:
-	8	Include edge cases and boundary conditions to ensure comprehensive coverage.
-	9	Format Output:
-	10	Format the output clearly, making it easy for testers to understand and execute.
+Instructions:
 
-Example User Input and Test Case:
+	1.	Understand the Database Schema:
+        The schema information will be provided in chunks retrieved from a vector database. Each chunk contains details about tables, columns, and \
+        relationships such as primary keys and foreign keys. Carefully review this information to determine how to structure the query.
+	2.	Process the Request:
+        Based on the natural language request and the schema details provided, generate a valid SQL query. Ensure you:
+        •	Identify the relevant tables and columns.
+        •	Include JOINs if there are relationships between tables.
+        •	Use WHERE, GROUP BY, HAVING, and ORDER BY clauses as needed for filtering, aggregating, and sorting.
+        •	Handle any specified conditions, such as date ranges, customer filters, etc.
+	3.	Optimization:
+        •	Use appropriate indices (such as those on primary and foreign keys) to optimize query performance.
+        •	Use aliases to improve the readability of complex queries.
+        •	Ensure the query is efficient, especially for large datasets or complex relationships.
+	4.	Output Format:
+        Return the SQL query in a code block formatted using triple backticks (```).
 
-User Input: Generate test cases for the user authentication feature.
+Examples:
 
-Generated Test Cases:
-{output_format}
+Example 1:
+
+    Request:
+    “Show the total number of orders placed by each customer, along with their first and last names.”
+
+    Relevant Schema Details:
+
+        •	Table customers (columns: customer_id, first_name, last_name)
+        •	Table orders (columns: order_id, customer_id, order_date)
+
+    Generated SQL Query:
+    SELECT c.first_name, c.last_name, COUNT(o.order_id) AS total_orders
+    FROM customers c
+    JOIN orders o ON c.customer_id = o.customer_id
+    GROUP BY c.customer_id, c.first_name, c.last_name;
+
+Example 2:
+
+    Request:
+    “List the names of all products in the 'Furniture' category, along with their prices.”
+
+    Relevant Schema Details:
+
+        •	Table products (columns: product_id, product_name, category_id, price)
+        •	Table categories (columns: category_id, category_name)
+
+    Generated SQL Query:
+    SELECT p.product_name, p.price
+    FROM products p
+    JOIN categories c ON p.category_id = c.category_id
+    WHERE c.category_name = 'Furniture';
 
 ----------------------------------------------------------------------------------------------------------
-Generate your test cases following this structure and ensure they are detailed, clear, and thorough.
+Generate the SQL following the instructions provided.
 ----------------------------------------------------------------------------------------------------------
 
 """
@@ -89,15 +104,15 @@ def main():
            
            # Search the DB.
             results = db.similarity_search_with_relevance_scores(topic, k=2)
-            if len(results) == 0 or results[0][1] < 0.6:
-                st.write(f"Unable to find matching results.")
+            if len(results) == 0 or (len(results[0]) > 1 and results[0][1] < 0.6):
+                st.write("Unable to find matching results.")
                 return
             else:
                 st.write(results)
             #Prepare prompt
             context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
             prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-            prompt = prompt_template.format(context=context_text, scenario=topic, output_format=tc_format_str)
+            prompt = prompt_template.format(context=context_text, scenario=topic)
             st.write(prompt)
 
         except Exception as e:
@@ -105,22 +120,14 @@ def main():
 
         model = ChatOpenAI(api_key=openai_api_key, temperature=0.7)
         response_text = model.predict(prompt)
-
-        # Assuming response_text contains the JSON string
-        response_data = json.loads(response_text)
-
-        # Convert the response data back to a JSON-formatted string with indentation
-        formatted_json = json.dumps(response_data, indent=4)
-
+        
         sources = [f"{doc.metadata.get('source', 'Unknown')} (Page {doc.metadata.get('page', 'Unknown')})" for doc, _score in results]
-        
-        formatted_response = f"Response: {formatted_json}"
-        
-        #print document soource
+
+        #print document source
         st.write(f"\nSource Document: \n\n{sources}")
 
-        # print output test cases
-        st.text_area("Formatted Response", value=formatted_response, height=400)
+        # print output SQL
+        st.text_area("Response", value=response_text, height=400)
 
 if __name__ == "__main__":
     main()

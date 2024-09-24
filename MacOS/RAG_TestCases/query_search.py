@@ -16,7 +16,7 @@ print(openai_api_key)
 
 CHROMA_PATH = "chroma"
 tc_format_path = "/Users/maymach09/Documents/GenAI09/MacOS/RAG_TestCases/tc_json_format"
-prompt = "prompt.txt"
+#prompt = "prompt.txt"
 
 # Load the JSON format from a separate file
 with open(tc_format_path, "r") as json_file:
@@ -32,14 +32,14 @@ PROMPT_TEMPLATE = """
 User Prompt for Generating Test Cases:
 ---------------------------------------------------------------------
 
-You are an intelligent assistant tasked with generating comprehensive test cases for software based on specific requirements detailed in the provided document content.\
-The user will specify a topic or a particular aspect of the software for which they need test cases. \
+You are an intelligent assistant tasked with generating comprehensive test cases for software based on specific requirements detailed in the \
+provided document content. The user will specify a requirement of the software for which they need test cases. \
 Use the information from the document and the topic provided by the user to generate relevant and thorough test cases.
 
 Document Content:
 {context}
 
-User Input:
+Requirement:
 {scenario}
 
 Instructions for Test Case Generation:
@@ -63,7 +63,7 @@ Instructions for Test Case Generation:
 
 Example User Input and Test Case:
 
-User Input: Generate test cases for the user authentication feature.
+Requirement: Generate test cases for the user authentication feature.
 
 Generated Test Cases:
 {output_format}
@@ -72,13 +72,15 @@ Generated Test Cases:
 Generate your test cases following this structure and ensure they are detailed, clear, and thorough.
 ----------------------------------------------------------------------------------------------------------
 
+If user's input is not relevant to the document content then do not generate the test cases and just say "Invalid question, please enter a valid input"
+
 """
 
 def main():
     
     # streamlit framework
     st.title("AI Tester")
-    topic = st.text_area("Ask a question:")
+    topic = st.text_area("Enter a Requirement:")
     
 
     if topic:
@@ -103,7 +105,7 @@ def main():
         except Exception as e:
             st.error(f"An error occurred: {e}")
 
-        model = ChatOpenAI(api_key=openai_api_key, temperature=0.7)
+        model = ChatOpenAI(api_key=openai_api_key, temperature=0.4)
         response_text = model.predict(prompt)
 
         # Assuming response_text contains the JSON string

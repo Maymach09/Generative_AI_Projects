@@ -54,8 +54,8 @@ def load_documents():
 def split_text(documents: list[Document]):
     try:
         text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=300,
-            chunk_overlap=100,
+            chunk_size=20,
+            chunk_overlap=5,
             length_function=len,
             add_start_index=True,
         )
@@ -83,7 +83,6 @@ def save_to_chroma(chunks: list[Document]):
         logger.info(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
     except Exception as e:
         logger.error(f"Error occurred while saving chunks to Chroma DB: {e}")
-
 
 
 if __name__ == "__main__":
