@@ -41,8 +41,8 @@ def generate_sql(user_query):
     columns in members table: id, name, age, gender, insurance_id
     columns in providers table: id, name, specialty, hospital
     columns in claims table: id, member_id, provider_id, claim_date, amount, status
-    columns in diagnosis table: id, claim_id, treatment_name, cost
-    columns in procedures table: id, claim_id, diagnosis_code, description
+    columns in procedures table: id, claim_id, treatment_name, cost
+    columns in diagnosis table: id, claim_id, diagnosis_code, description
 
 
     Query: "{user_query}"

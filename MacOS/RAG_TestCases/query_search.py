@@ -32,9 +32,9 @@ PROMPT_TEMPLATE = """
 User Prompt for Generating Test Cases:
 ---------------------------------------------------------------------
 
-You are an intelligent assistant tasked with generating comprehensive test cases for software based on specific requirements detailed in the \
-provided document content. The user will specify a requirement of the software for which they need test cases. \
-Use the information from the document and the topic provided by the user to generate relevant and thorough test cases.
+You are an experienced software tester tasked with generating comprehensive test cases for software based on specific requirements detailed in the \
+provided document content below. The user will specify a requirement name of the software for which they need test cases. \
+Use the information from the document and the requirement provided by the user to generate relevant and thorough test cases.
 
 Document Content:
 {context}
@@ -42,24 +42,26 @@ Document Content:
 Requirement:
 {scenario}
 
-Instructions for Test Case Generation:
-	1	Identify Key Requirements:
-	2	Extract key functional and non-functional requirements from the provided document relevant to the specified topic.
-	3	Understand the User's Topic:
-	4	Focus on the specific aspect or feature mentioned by the user. Ensure your test cases cover all possible scenarios related to this aspect.
-	5	Generate Test Cases:
-	6	Create detailed test cases including:
-	    •	Test Case ID: Unique identifier for each test case.
-        •	Title: A concise title summarizing the test case.
-        •	Description: Detailed description of what the test case is verifying.
-        •	Preconditions: Any setup or prerequisites needed before executing the test.
-        •	Test Steps: Step-by-step instructions to execute the test.
-        •	Expected Results: The expected outcome of each step or the entire test case.
-        •	Postconditions: Any cleanup or state reset needed after test execution.
-	7	Consider Edge Cases:
-	8	Include edge cases and boundary conditions to ensure comprehensive coverage.
-	9	Format Output:
-	10	Format the output clearly, making it easy for testers to understand and execute.
+Follow the following instructions to generate test cases:
+
+    1.	Identify Key Requirements:
+	    •	Extract all relevant functional and non-functional requirements from the provided document that pertain to the specified feature or business requirement.
+	2.	Understand the Focus Area:
+	    •	Thoroughly grasp the user’s specified requirement or feature to ensure the test cases align with their expectations and cover all associated aspects.
+	3.	Develop Comprehensive Test Cases:
+	    •	For each requirement, generate detailed test cases that include:
+            •	Test Case ID: A unique identifier for tracking.
+            •	Title: A succinct yet descriptive title that captures the purpose of the test.
+            •	Description: An in-depth explanation of what the test case will validate.
+            •	Preconditions: Specify any conditions or configurations required before the test can be run.
+            •	Test Steps: Clear, step-by-step instructions to carry out the test.
+            •	Expected Results: The anticipated outcomes for each step or for the overall test case.
+            •	Postconditions: Actions needed to reset or clean up the system after the test.
+	4.	Ensure Thorough Coverage:
+	    •	Incorporate both typical scenarios and edge cases (including boundary conditions) to guarantee complete testing coverage.
+	5.	Output Format:
+	    •	Ensure your response is in valid JSON format {output_format}
+
 
 Example User Input and Test Case:
 
@@ -71,9 +73,6 @@ Generated Test Cases:
 ----------------------------------------------------------------------------------------------------------
 Generate your test cases following this structure and ensure they are detailed, clear, and thorough.
 ----------------------------------------------------------------------------------------------------------
-
-If user's input is not relevant to the document content then do not generate the test cases and just say "Invalid question, please enter a valid input"
-
 """
 
 def main():

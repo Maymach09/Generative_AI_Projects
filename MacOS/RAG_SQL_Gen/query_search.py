@@ -47,7 +47,7 @@ Instructions:
         •	Use aliases to improve the readability of complex queries.
         •	Ensure the query is efficient, especially for large datasets or complex relationships.
 	4.	Output Format:
-        Return the SQL query in a code block formatted using triple backticks (```).
+        Return the SQL query in a code block without any other text or character.
 
 Examples:
 
