@@ -1,0 +1,12 @@
+README.md
+setup.py
+claimsChatBot.egg-info/PKG-INFO
+claimsChatBot.egg-info/SOURCES.txt
+claimsChatBot.egg-info/dependency_links.txt
+claimsChatBot.egg-info/requires.txt
+claimsChatBot.egg-info/top_level.txt
+src/__init__.py
+src/claimsChatBot/__init__.py
+src/claimsChatBot/bot.py
+src/claimsChatBot/logger.py
+src/claimsChatBot/utils.py

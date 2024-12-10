@@ -4,6 +4,13 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langchain.memory import ChatMessageHistory
 from langchain_chatbot import read_pdf, split_pages_into_chunks, create_vector_db, qa_prompt, invoke_doc_chain
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# access environment variable
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 #Langsmith tracing
 os.environ['LANGCHAIN_TRACING_V2'] = 'true'
@@ -11,17 +18,17 @@ os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
 
 
 # Define the function to read the secret key from the file
-def get_openai_api_key():
-    try:
-        with open('secret_key.txt', 'r') as file:
-            api_key = file.read().strip()
-            return api_key
-    except FileNotFoundError:
-        st.error("OpenAI API key file not found.")
-        return None
-    except Exception as e:
-        st.error(f"Error reading OpenAI API key: {e}")
-        return None
+# def get_openai_api_key():
+#     try:
+#         with open('secret_key.txt', 'r') as file:
+#             api_key = file.read().strip()
+#             return api_key
+#     except FileNotFoundError:
+#         st.error("OpenAI API key file not found.")
+#         return None
+#     except Exception as e:
+#         st.error(f"Error reading OpenAI API key: {e}")
+#         return None
 
 
 def main_qa_chatbot(user_input, model, url):
