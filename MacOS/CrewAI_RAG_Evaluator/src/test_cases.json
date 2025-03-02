@@ -1,0 +1,22 @@
+{
+    "tests": [
+        {
+            "query": "What is CrewAI?",
+            "retrieved_docs": [
+                "CrewAI is an AI orchestration framework for creating collaborative agents.",
+                "It allows multiple AI agents to work together efficiently."
+            ],
+            "generated_response": "CrewAI helps AI agents collaborate effectively.",
+            "expected_response": "CrewAI is an AI orchestration framework for creating collaborative agents."
+        },
+        {
+            "query": "How does retrieval-augmented generation work?",
+            "retrieved_docs": [
+                "RAG retrieves external knowledge to improve generated responses.",
+                "It first finds relevant documents, then generates answers based on them."
+            ],
+            "generated_response": "RAG retrieves and generates text from sources.",
+            "expected_response": "RAG retrieves external knowledge to improve generated responses."
+        }
+    ]
+}

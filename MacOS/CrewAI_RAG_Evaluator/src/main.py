@@ -1,10 +1,10 @@
-import os
-from dotenv import load_dotenv
+from crews.crew import run_crew
+from evaluation.batch_evaluator import batch_evaluate
 
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+if __name__ == "__main__":
+    # Run Crew Tasks
+    run_crew()
 
-if not api_key:
-    raise ValueError("Missing OpenAI API Key!")
-
-print("API Key loaded successfully!")
+    # Run Batch Evaluation
+    print("\nRunning Batch Evaluation...")
+    batch_results = batch_evaluate()
